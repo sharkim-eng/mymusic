@@ -40,10 +40,18 @@
   const isSaved=s=>loadSaved().some(x=>key(x)===key(s));
 
   const loadRecent=()=>{const v=parse(localStorage,KEYS.recent,[]);return Array.isArray(v)?v:[]};
+  const saveRecent=v=>localStorage.setItem(KEYS.recent,JSON.stringify(Array.isArray(v)?v:[]));
+  const removeRecent=s=>{
+    const target=key(s);
+    const next=loadRecent().filter(x=>key(x)!==target);
+    saveRecent(next);
+    return next;
+  };
+  const clearRecent=()=>{saveRecent([]);return[]};
   const recordPlay=(s,mood='',genre='')=>{
     const item={title:s.title,artist:s.artist,videoId:videoId(s),url:url(s),mood,genre,playedAt:Date.now()};
     const rest=loadRecent().filter(x=>key(x)!==key(s));
-    localStorage.setItem(KEYS.recent,JSON.stringify([item,...rest].slice(0,50)));
+    saveRecent([item,...rest].slice(0,50));
     return item;
   };
   const open=(s,mood='',genre='')=>{recordPlay(s,mood,genre);const u=url(s);if(u)location.href=u};
@@ -136,5 +144,5 @@
 
   const resetRecommendationHistory=()=>{localStorage.removeItem(KEYS.history);localStorage.removeItem(KEYS.last)};
 
-  window.SHARK={emoji,message,key,videoId,url,loadSaved,saveSaved,toggleSaved,isSaved,loadRecent,recordPlay,open,recommend,five,similar,resetRecommendationHistory,poolFor};
+  window.SHARK={emoji,message,key,videoId,url,loadSaved,saveSaved,toggleSaved,isSaved,loadRecent,saveRecent,removeRecent,clearRecent,recordPlay,open,recommend,five,similar,resetRecommendationHistory,poolFor};
 })();
