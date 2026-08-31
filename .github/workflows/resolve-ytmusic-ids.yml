@@ -10,6 +10,7 @@ on:
       - "catalog-pack.js"
       - "artist-pack.js"
       - "mega-catalog.js"
+      - "user-request-pack.js"
       - "tools/export-catalog.mjs"
       - "tools/resolve-ytmusic-ids.py"
       - ".github/workflows/resolve-ytmusic-ids.yml"
