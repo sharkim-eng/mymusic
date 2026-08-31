@@ -5,7 +5,7 @@ type Mood = '행복' | '사랑' | '슬픔' | '화남' | '피곤' | '위로' | '�
 type Genre = 'ALL' | 'KPOP' | 'POP' | 'INDIE'
 
 type Song = { title: string; artist: string; videoId?: string }
-type MusicData = Record<Mood, { KPOP: Song[]; POP: Song[]; INDIE: Song[] }>
+type MusicData = Partial<Record<Mood, { KPOP: Song[]; POP: Song[]; INDIE: Song[] }>>
 
 declare global {
   interface Window {
@@ -67,54 +67,21 @@ function App() {
   const [saved, setSaved] = useState<Song[]>(() => {
     try {
       const legacy = JSON.parse(localStorage.getItem('sharkPlaylist') || '[]')
-      if (Array.isArray(legacy)) return legacy
+      if (Array.isArray(legacy) && legacy.length) return legacy
       const current = JSON.parse(localStorage.getItem('mymusic-youtube-library') || '[]')
       return Array.isArray(current) ? current.map((x: any) => ({ title: x.title, artist: x.artist, videoId: x.videoId })) : []
-    } catch { return [] }
+    } catch {
+      return []
+    }
   })
   const [current, setCurrent] = useState<Song | null>(null)
-  const [playing, setPlaying] = useState(false)
-  const playerHost = useRef<HTMLDivElement>(null)
-  const player = useRef<any>(null)
 
   useEffect(() => localStorage.setItem('sharkPlaylist', JSON.stringify(saved)), [saved])
 
-  useEffect(() => {
-    const init = () => {
-      if (!playerHost.current || player.current || !window.YT?.Player) return
-      player.current = new window.YT.Player(playerHost.current, {
-        width: '100%', height: '100%',
-        playerVars: { playsinline: 1, rel: 0, modestbranding: 1 },
-        events: {
-          onStateChange: (event: any) => {
-            if (event.data === 1) setPlaying(true)
-            if (event.data === 0 || event.data === 2) setPlaying(false)
-          },
-        },
-      })
-    }
-    if (window.YT?.Player) init()
-    else {
-      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
-        const script = document.createElement('script')
-        script.src = 'https://www.youtube.com/iframe_api'
-        document.head.appendChild(script)
-      }
-      const previous = window.onYouTubeIframeAPIReady
-      window.onYouTubeIframeAPIReady = () => { previous?.(); init() }
-    }
-  }, [])
-
-  useEffect(() => {
-    const videoId = current ? videoIdOf(current) : ''
-    if (!videoId || !player.current?.loadVideoById) return
-    player.current.loadVideoById(videoId)
-    setPlaying(true)
-  }, [current])
-
   const pool = useMemo(() => {
-    if (!mood || !window.musicData?.[mood]) return []
-    const data = window.musicData[mood]
+    if (!mood) return []
+    const data = window.musicData?.[mood]
+    if (!data) return []
     const list = genre === 'ALL' ? [...data.KPOP, ...data.POP, ...data.INDIE] : data[genre]
     return list.filter((song) => Boolean(videoIdOf(song)))
   }, [mood, genre, refreshSeed])
@@ -122,60 +89,232 @@ function App() {
   const recommendations = useMemo(() => shuffled(pool).slice(0, 5), [pool, refreshSeed])
 
   const isSaved = (song: Song) => saved.some((item) => keyOf(item) === keyOf(song))
+
   const toggleSaved = (song: Song) => {
-    setSaved((items) => isSaved(song) ? items.filter((item) => keyOf(item) !== keyOf(song)) : [...items, { ...song, videoId: videoIdOf(song) }])
+    setSaved((items) => {
+      const exists = items.some((item) => keyOf(item) === keyOf(song))
+      return exists
+        ? items.filter((item) => keyOf(item) !== keyOf(song))
+        : [...items, { ...song, videoId: videoIdOf(song) }]
+    })
   }
-  const play = (song: Song) => setCurrent({ ...song, videoId: videoIdOf(song) })
 
-  const Header = ({ back }: { back?: () => void }) => <header className="topbar">
-    {back ? <button className="back" onClick={back} aria-label="뒤로 가기">←</button> : <div className="top-spacer" />}
-    <div className="shark-logo">SHARK</div><div className="logo-dot" />
-  </header>
+  const play = (song: Song) => {
+    const videoId = videoIdOf(song)
+    if (!videoId) return
+    setCurrent({ ...song, videoId })
+  }
 
-  if (screen === 'home') return <main className="page home-page">
-    <div className="glow" />
-    <Header />
-    <section className="home-hero">
-      <h1><span>지금 기분을</span><span className="accent">노래로 바꿔줄게.</span></h1>
-      <p>네가 지금 어떤 기분인지 골라줘.<br />그 순간에 어울리는 음악을 찾아줄게.</p>
-    </section>
-    <footer className="home-bottom"><div className="glass-card"><button className="primary-cta" onClick={() => setScreen('mood')}><span>내 기분으로 음악 찾기</span><span className="arrow">→</span></button></div><div className="bottom-note">YOUR MOOD · YOUR MUSIC</div></footer>
-  </main>
+  const Header = ({ back }: { back?: () => void }) => (
+    <header className="topbar">
+      {back ? <button className="back" onClick={back} aria-label="뒤로 가기">←</button> : <div className="top-spacer" />}
+      <div className="shark-logo">SHARK</div>
+      <div className="logo-dot" />
+    </header>
+  )
 
-  if (screen === 'mood') return <main className="page mood-page">
-    <Header back={() => setScreen('home')} />
-    <section className="intro"><h1>지금 기분은<br /><span>어떤 쪽이야?</span></h1><p>가장 가까운 감정 하나만 골라줘.</p></section>
-    <div className="mood-grid">{moods.map((item) => <button key={item.id} className={`mood-button ${mood === item.id ? 'selected' : ''}`} onClick={() => setMood(item.id)}><span className="emoji">{item.emoji}</span><span className="mood-copy"><span className="mood-name">{item.id}</span><span className="mood-description">{item.description}</span></span></button>)}</div>
-    <div className="recommend-wrap"><button className={`recommend-button ${mood ? 'visible' : ''}`} onClick={() => mood && setScreen('result')}><span>이 기분으로 음악 찾기</span><span className="arrow">→</span></button></div>
-  </main>
+  let content: JSX.Element
 
-  if (screen === 'mymusic') return <main className="page playlist-page">
-    <Header back={() => setScreen(mood ? 'result' : 'mood')} />
-    <section className="playlist-head"><h1>MY MUSIC</h1><p>내가 좋아하는 노래만 모아봤어.</p></section>
-    {saved.length > 0 && <button className="play-all-button" onClick={() => play(saved[0])}>▶ 첫 곡부터 듣기</button>}
-    {current && <div className="now-playing">▶ {current.title} — {current.artist}</div>}
-    <div className="music-list">{saved.map((song) => <article key={keyOf(song)} className={`music-item ${current && keyOf(current) === keyOf(song) ? 'selected' : ''}`}><div className="music-info"><h2>{song.title}</h2><p>{song.artist}</p></div><div className="music-actions"><button className="play-button" onClick={() => play(song)}>▶ 바로 재생</button><button className="remove-button" onClick={() => toggleSaved(song)}>♥</button></div></article>)}</div>
-    {!saved.length && <div className="empty-message"><span className="empty-heart">♡</span>아직 저장한 노래가 없어.<br />마음에 드는 노래에<br />♥를 눌러 저장해봐.</div>}
-    <button className="text-button" onClick={() => setScreen('mood')}>다시 기분 고르기</button>
-    <Player current={current} playerHost={playerHost} playing={playing} onToggle={() => playing ? player.current?.pauseVideo?.() : player.current?.playVideo?.()} />
-  </main>
+  if (screen === 'home') {
+    content = (
+      <main className="page home-page">
+        <div className="glow" />
+        <Header />
+        <section className="home-hero">
+          <h1><span>지금 기분을</span><span className="accent">노래로 바꿔줄게.</span></h1>
+          <p>네가 지금 어떤 기분인지 골라줘.<br />그 순간에 어울리는 음악을 찾아줄게.</p>
+        </section>
+        <footer className="home-bottom">
+          <div className="glass-card">
+            <button className="primary-cta" onClick={() => setScreen('mood')}>
+              <span>내 기분으로 음악 찾기</span><span className="arrow">→</span>
+            </button>
+          </div>
+          <div className="bottom-note">YOUR MOOD · YOUR MUSIC</div>
+        </footer>
+      </main>
+    )
+  } else if (screen === 'mood') {
+    content = (
+      <main className="page mood-page">
+        <Header back={() => setScreen('home')} />
+        <section className="intro"><h1>지금 기분은<br /><span>어떤 쪽이야?</span></h1><p>가장 가까운 감정 하나만 골라줘.</p></section>
+        <div className="mood-grid">
+          {moods.map((item) => (
+            <button key={item.id} className={`mood-button ${mood === item.id ? 'selected' : ''}`} onClick={() => setMood(item.id)}>
+              <span className="emoji">{item.emoji}</span>
+              <span className="mood-copy"><span className="mood-name">{item.id}</span><span className="mood-description">{item.description}</span></span>
+            </button>
+          ))}
+        </div>
+        <div className="recommend-wrap">
+          <button className={`recommend-button ${mood ? 'visible' : ''}`} onClick={() => mood && setScreen('result')}>
+            <span>이 기분으로 음악 찾기</span><span className="arrow">→</span>
+          </button>
+        </div>
+      </main>
+    )
+  } else if (screen === 'mymusic') {
+    content = (
+      <main className="page playlist-page">
+        <Header back={() => setScreen(mood ? 'result' : 'mood')} />
+        <section className="playlist-head"><h1>MY MUSIC</h1><p>내가 좋아하는 노래만 모아봤어.</p></section>
+        {saved.length > 0 && <button className="play-all-button" onClick={() => play(saved[0])}>▶ 첫 곡부터 듣기</button>}
+        {current && <div className="now-playing">▶ {current.title} — {current.artist}</div>}
+        <div className="music-list">
+          {saved.map((song) => (
+            <article key={keyOf(song)} className={`music-item ${current && keyOf(current) === keyOf(song) ? 'selected' : ''}`}>
+              <div className="music-info"><h2>{song.title}</h2><p>{song.artist}</p></div>
+              <div className="music-actions">
+                <button className="play-button" onClick={() => play(song)}>▶ 바로 재생</button>
+                <button className="remove-button" onClick={() => toggleSaved(song)}>♥</button>
+              </div>
+            </article>
+          ))}
+        </div>
+        {!saved.length && <div className="empty-message"><span className="empty-heart">♡</span>아직 저장한 노래가 없어.<br />마음에 드는 노래에<br />♥를 눌러 저장해봐.</div>}
+        <button className="text-button" onClick={() => setScreen('mood')}>다시 기분 고르기</button>
+      </main>
+    )
+  } else {
+    const selectedMood = moods.find((item) => item.id === mood) || moods[0]
+    content = (
+      <main className="page result-page">
+        <Header back={() => setScreen('mood')} />
+        <section className="result-head">
+          <h1>오늘은 이런 노래 어때?</h1>
+          <div className="mood-summary"><div className="selected-mood-wrap"><span>{selectedMood.emoji}</span></div><p>{selectedMood.message}</p></div>
+        </section>
+        <section className="genre-section">
+          <div className="genre-row">
+            {genres.map((item) => <button key={item.id} className={`genre-button ${genre === item.id ? 'active' : ''}`} onClick={() => setGenre(item.id)}>{item.label}</button>)}
+          </div>
+        </section>
+        <div className="music-list">
+          {recommendations.map((song, index) => (
+            <article key={`${keyOf(song)}-${index}`} className="music-card" onClick={() => play(song)}>
+              <div className="music-top"><div className="music-number">{String(index + 1).padStart(2, '0')}</div><div className="music-info"><h2>{song.title}</h2><p>{song.artist}</p></div></div>
+              <div className="button-row">
+                <button className="music-button" onClick={(event) => { event.stopPropagation(); play(song) }}>▶ 바로 재생</button>
+                <button className={`heart-button ${isSaved(song) ? 'saved' : ''}`} onClick={(event) => { event.stopPropagation(); toggleSaved(song) }}>{isSaved(song) ? '♥' : '♡'}</button>
+              </div>
+            </article>
+          ))}
+        </div>
+        {!recommendations.length && <div className="empty-message">현재 바로 재생 링크가 확인된 곡이 없어.</div>}
+        <button className="action-button random-button" onClick={() => setRefreshSeed((value) => value + 1)}>다른 노래 추천</button>
+        <button className="action-button playlist-button" onClick={() => setScreen('mymusic')}>MY MUSIC</button>
+        <button className="text-button" onClick={() => setScreen('mood')}>다시 고르기</button>
+      </main>
+    )
+  }
 
-  const selectedMood = moods.find((item) => item.id === mood) || moods[0]
-  return <main className="page result-page">
-    <Header back={() => setScreen('mood')} />
-    <section className="result-head"><h1>오늘은 이런 노래 어때?</h1><div className="mood-summary"><div className="selected-mood-wrap"><span>{selectedMood.emoji}</span></div><p>{selectedMood.message}</p></div></section>
-    <section className="genre-section"><div className="genre-row">{genres.map((item) => <button key={item.id} className={`genre-button ${genre === item.id ? 'active' : ''}`} onClick={() => setGenre(item.id)}>{item.label}</button>)}</div></section>
-    <div className="music-list">{recommendations.map((song, index) => <article key={`${keyOf(song)}-${index}`} className="music-card" onClick={() => play(song)}><div className="music-top"><div className="music-number">{String(index + 1).padStart(2, '0')}</div><div className="music-info"><h2>{song.title}</h2><p>{song.artist}</p></div></div><div className="button-row"><button className="music-button" onClick={(e) => { e.stopPropagation(); play(song) }}>▶ 바로 재생</button><button className={`heart-button ${isSaved(song) ? 'saved' : ''}`} onClick={(e) => { e.stopPropagation(); toggleSaved(song) }}>{isSaved(song) ? '♥' : '♡'}</button></div></article>)}</div>
-    {!recommendations.length && <div className="empty-message">현재 바로 재생 링크가 확인된 곡이 없어.</div>}
-    <button className="action-button random-button" onClick={() => setRefreshSeed((v) => v + 1)}>다른 노래 추천</button>
-    <button className="action-button playlist-button" onClick={() => setScreen('mymusic')}>MY MUSIC</button>
-    <button className="text-button" onClick={() => setScreen('mood')}>다시 고르기</button>
-    <Player current={current} playerHost={playerHost} playing={playing} onToggle={() => playing ? player.current?.pauseVideo?.() : player.current?.playVideo?.()} />
-  </main>
+  return (
+    <>
+      {content}
+      <Player current={current} />
+    </>
+  )
 }
 
-function Player({ current, playerHost, playing, onToggle }: { current: Song | null; playerHost: React.RefObject<HTMLDivElement | null>; playing: boolean; onToggle: () => void }) {
-  return <div className={`inapp-player ${current ? 'visible' : ''}`}><div className="video-frame"><div ref={playerHost} /></div>{current && <div className="player-meta"><span><b>{current.title}</b><small>{current.artist}</small></span><button onClick={onToggle}>{playing ? 'Ⅱ' : '▶'}</button></div>}</div>
+function Player({ current }: { current: Song | null }) {
+  const hostRef = useRef<HTMLDivElement>(null)
+  const playerRef = useRef<any>(null)
+  const pendingVideoId = useRef('')
+  const [playing, setPlaying] = useState(false)
+  const [ready, setReady] = useState(false)
+  const [error, setError] = useState('')
+
+  const videoId = current ? videoIdOf(current) : ''
+  pendingVideoId.current = videoId
+
+  useEffect(() => {
+    let cancelled = false
+
+    const init = () => {
+      if (cancelled || !hostRef.current || playerRef.current || !window.YT?.Player) return
+
+      playerRef.current = new window.YT.Player(hostRef.current, {
+        width: '100%',
+        height: '100%',
+        playerVars: {
+          playsinline: 1,
+          rel: 0,
+          modestbranding: 1,
+          enablejsapi: 1,
+          origin: window.location.origin,
+        },
+        events: {
+          onReady: (event: any) => {
+            if (cancelled) return
+            setReady(true)
+            const id = pendingVideoId.current
+            if (id) {
+              event.target.loadVideoById(id)
+              event.target.playVideo?.()
+            }
+          },
+          onStateChange: (event: any) => {
+            setPlaying(event.data === 1)
+          },
+          onError: (event: any) => {
+            const code = Number(event.data)
+            setPlaying(false)
+            setError(code === 101 || code === 150 ? '이 영상은 앱 안에서 재생이 제한되어 있습니다.' : 'YouTube 재생 중 오류가 발생했습니다.')
+          },
+        },
+      })
+    }
+
+    if (window.YT?.Player) {
+      init()
+    } else {
+      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
+        const script = document.createElement('script')
+        script.src = 'https://www.youtube.com/iframe_api'
+        document.head.appendChild(script)
+      }
+      const previous = window.onYouTubeIframeAPIReady
+      window.onYouTubeIframeAPIReady = () => {
+        previous?.()
+        init()
+      }
+    }
+
+    return () => {
+      cancelled = true
+      playerRef.current?.destroy?.()
+      playerRef.current = null
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!videoId) return
+    setError('')
+    if (!ready || !playerRef.current?.loadVideoById) return
+    playerRef.current.loadVideoById(videoId)
+    playerRef.current.playVideo?.()
+  }, [videoId, ready])
+
+  const toggle = () => {
+    if (!playerRef.current) return
+    if (playing) playerRef.current.pauseVideo?.()
+    else playerRef.current.playVideo?.()
+  }
+
+  const musicUrl = videoId ? `https://music.youtube.com/watch?v=${encodeURIComponent(videoId)}` : ''
+
+  return (
+    <div className={`inapp-player ${current ? 'visible' : ''}`}>
+      <div className="video-frame"><div ref={hostRef} /></div>
+      {current && (
+        <div className="player-meta">
+          <span><b>{current.title}</b><small>{current.artist}</small>{error && <small className="player-error">{error}</small>}</span>
+          {error && musicUrl ? <a className="fallback-link" href={musicUrl} target="_blank" rel="noreferrer">YT Music</a> : <button onClick={toggle}>{playing ? 'Ⅱ' : '▶'}</button>}
+        </div>
+      )}
+    </div>
+  )
 }
 
 export default App
