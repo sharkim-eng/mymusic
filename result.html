@@ -8,6 +8,7 @@
   <header class="top"><button class="back" id="backButton" aria-label="뒤로 가기">←</button><div class="logo">SHARK</div><div class="logo-dot"></div></header>
   <section class="result-head"><h1 class="result-title">오늘은 이런 노래 어때?</h1><div class="mood-summary"><div class="selected-mood-wrap" id="selectedMood">😊</div><p class="mood-text" id="moodText"></p></div></section>
   <section class="genre-section"><div class="genre-row" id="genreRow"><button class="genre-button active" data-genre="ALL">전체</button><button class="genre-button" data-genre="KPOP">K-POP</button><button class="genre-button" data-genre="POP">POP</button><button class="genre-button" data-genre="INDIE">INDIE</button></div></section>
+  <div class="similar-state" id="similarState" hidden></div>
   <div class="music-list" id="musicList"></div>
   <div class="result-actions">
     <button class="action-button primary-action" id="moreButton">+ 5곡 더 보기</button>
@@ -23,15 +24,20 @@
 <script>
 const params=new URLSearchParams(location.search),requested=params.get('mood'),mood=SHARK.emoji[requested]?requested:'행복';
 let genre='ALL',current=[],similarSeed=null;
-const list=document.getElementById('musicList'),moodText=document.getElementById('moodText');
+const list=document.getElementById('musicList'),moodText=document.getElementById('moodText'),similarState=document.getElementById('similarState');
 document.getElementById('selectedMood').textContent=SHARK.emoji[mood];
 
-function setMoodMessage(){moodText.textContent=similarSeed?`“${similarSeed.title}”과 비슷한 결의 노래를 골라봤어.`:SHARK.message[mood]}
+function setMoodMessage(){
+  moodText.textContent=similarSeed?`“${similarSeed.title}”을 기준으로 비슷한 분위기의 노래를 골랐어.`:SHARK.message[mood];
+  similarState.hidden=!similarSeed;
+  if(similarSeed)similarState.innerHTML=`<b>비슷한 곡 추천 중</b><span>${similarSeed.title} · ${similarSeed.artist}</span>`;
+}
 
 function createCard(song,i){
   const card=document.createElement('article');card.className='music-card';card.tabIndex=0;
-  const saved=SHARK.isSaved(song);
-  card.innerHTML=`<div class="music-top"><div class="music-number">${String(i+1).padStart(2,'0')}</div><div class="music-info"><h2>${song.title}</h2><p>${song.artist}</p></div></div><div class="button-row"><button class="music-button">♫ 재생</button><button class="similar-button">비슷한 곡</button><button class="heart-button ${saved?'saved':''}">${saved?'♥':'♡'}</button></div>`;
+  const saved=SHARK.isSaved(song),exact=SHARK.hasExactLink(song);
+  const playLabel=exact?'♫ YouTube Music 재생':'YouTube Music에서 찾기';
+  card.innerHTML=`<div class="music-top"><div class="music-number">${String(i+1).padStart(2,'0')}</div><div class="music-info"><h2>${song.title}</h2><p>${song.artist}</p>${exact?'<span class="exact-badge">직접 연결</span>':''}</div></div><div class="button-row"><button class="music-button ${exact?'':'search-only'}">${playLabel}</button><button class="similar-button">비슷한 곡</button><button class="heart-button ${saved?'saved':''}">${saved?'♥':'♡'}</button></div>`;
   const play=()=>SHARK.open(song,mood,genre);
   card.onclick=play;
   card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}};
@@ -54,7 +60,14 @@ function more(){
   next.forEach(song=>{if(!existing.has(SHARK.key(song))){current.push(song);existing.add(SHARK.key(song))}});
   draw();
 }
-function showSimilar(song){similarSeed=song;current=SHARK.similar(song,mood,genre,5,[]);setMoodMessage();draw();window.scrollTo({top:0,behavior:'smooth'})}
+function showSimilar(song){
+  const previous=[...current];
+  similarSeed=song;
+  current=SHARK.similar(song,mood,genre,5,previous);
+  if(!current.length)current=SHARK.similar(song,mood,genre,5,[song]);
+  setMoodMessage();draw();
+  similarState.scrollIntoView({behavior:'smooth',block:'start'});
+}
 function syncHearts(){[...list.querySelectorAll('.music-card')].forEach((card,i)=>{const b=card.querySelector('.heart-button'),saved=SHARK.isSaved(current[i]);b.textContent=saved?'♥':'♡';b.classList.toggle('saved',saved)})}
 
 document.querySelectorAll('.genre-button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.genre-button').forEach(x=>x.classList.remove('active'));b.classList.add('active');genre=b.dataset.genre;fresh()});
@@ -62,7 +75,7 @@ document.getElementById('moreButton').onclick=more;
 document.getElementById('randomButton').onclick=fresh;
 document.getElementById('playlistButton').onclick=()=>location.href='./playlist.html';
 document.getElementById('backButton').onclick=()=>location.href='./mood.html';
-setMoodMessage();fresh();
+fresh();
 </script>
 </body>
 </html>
