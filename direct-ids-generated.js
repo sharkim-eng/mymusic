@@ -277,6 +277,7 @@
   "end of beginning|||djo": "Kf5pXDhx5Vc",
   "ending scene|||iu": "ybiINVA_gLc",
   "energetic|||wanna one": "-Oif1zcHV-4",
+  "epiphany|||jin": "LH3NTk7P3wM",
   "espresso|||sabrina carpenter": "kIft-LUHHVA",
   "eta|||newjeans": "XCkpalH6Ppk",
   "eventually|||tame impala": "YifOMt9dlGk",
@@ -1075,5 +1076,5 @@
   "불면증|||그리즐리(grizzly)": "jj4ktlDqdSM",
   "사랑했나봐|||yb": "VwuP95CES70"
 });
-  window.SHARK_AUTO_ID_STATS = { version: 2, total: 1141, audio: 1051, video: 19, unresolved: 71 };
+  window.SHARK_AUTO_ID_STATS = { version: 2, total: 1141, audio: 1052, video: 19, unresolved: 70 };
 })();

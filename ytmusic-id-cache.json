@@ -3072,9 +3072,15 @@
     "videoId": "-Oif1zcHV-4"
   },
   "epiphany|||jin": {
-    "kind": "unresolved",
+    "artistScore": 0.5,
+    "kind": "audio",
+    "matchedArtist": "Jin the Artist",
+    "matchedTitle": "Epiphany",
     "query": "Epiphany Jin",
-    "resolverVersion": 2
+    "resolverVersion": 2,
+    "score": 0.91,
+    "titleScore": 1.0,
+    "videoId": "LH3NTk7P3wM"
   },
   "espresso|||sabrina carpenter": {
     "artistScore": 1.0,
