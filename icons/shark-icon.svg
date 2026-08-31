@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SHARK">
+  <rect width="512" height="512" rx="112" fill="#031118"/>
+  <circle cx="256" cy="256" r="154" fill="#0a2833"/>
+  <path d="M112 292c46-25 90-32 128-21 33 9 63 31 88 66-29 18-64 27-105 27-45 0-82-12-111-36z" fill="#a9f5f5"/>
+  <path d="M222 271c17-73 66-123 147-151-2 75-27 135-76 182z" fill="#6ce8ee"/>
+  <path d="M136 238c20-36 58-60 113-70l17 43c-51 8-86 27-108 57z" fill="#6ce8ee"/>
+  <path d="M170 203c-10 14-16 31-18 51M342 192c10 14 16 31 18 51" fill="none" stroke="#dffcff" stroke-width="18" stroke-linecap="round"/>
+  <path d="M145 211a35 35 0 0 1 28-32M367 211a35 35 0 0 0-28-32" fill="none" stroke="#dffcff" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="231" cy="295" r="8" fill="#031118"/>
+  <path d="M250 316l18 0" stroke="#031118" stroke-width="7" stroke-linecap="round"/>
+</svg>
