@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
+import { type ReactNode, useEffect, useMemo, useState } from 'react'
 
 type Screen = 'home' | 'mood' | 'result' | 'mymusic'
 type Mood = '행복' | '사랑' | '슬픔' | '화남' | '피곤' | '위로' | '신남' | 'SHARK'
@@ -10,8 +10,6 @@ type MusicData = Partial<Record<Mood, { KPOP: Song[]; POP: Song[]; INDIE: Song[]
 declare global {
   interface Window {
     musicData?: MusicData
-    YT?: any
-    onYouTubeIframeAPIReady?: () => void
   }
 }
 
@@ -218,99 +216,30 @@ function App() {
 }
 
 function Player({ current }: { current: Song | null }) {
-  const hostRef = useRef<HTMLDivElement>(null)
-  const playerRef = useRef<any>(null)
-  const pendingVideoId = useRef('')
-  const [playing, setPlaying] = useState(false)
-  const [ready, setReady] = useState(false)
-  const [error, setError] = useState('')
-
   const videoId = current ? videoIdOf(current) : ''
-  pendingVideoId.current = videoId
-
-  useEffect(() => {
-    let cancelled = false
-
-    const init = () => {
-      if (cancelled || !hostRef.current || playerRef.current || !window.YT?.Player) return
-
-      playerRef.current = new window.YT.Player(hostRef.current, {
-        width: '100%',
-        height: '100%',
-        playerVars: {
-          playsinline: 1,
-          rel: 0,
-          modestbranding: 1,
-          enablejsapi: 1,
-          origin: window.location.origin,
-        },
-        events: {
-          onReady: (event: any) => {
-            if (cancelled) return
-            setReady(true)
-            const id = pendingVideoId.current
-            if (id) {
-              event.target.loadVideoById(id)
-              event.target.playVideo?.()
-            }
-          },
-          onStateChange: (event: any) => {
-            setPlaying(event.data === 1)
-          },
-          onError: (event: any) => {
-            const code = Number(event.data)
-            setPlaying(false)
-            setError(code === 101 || code === 150 ? '이 영상은 앱 안에서 재생이 제한되어 있습니다.' : 'YouTube 재생 중 오류가 발생했습니다.')
-          },
-        },
-      })
-    }
-
-    if (window.YT?.Player) {
-      init()
-    } else {
-      if (!document.querySelector('script[src="https://www.youtube.com/iframe_api"]')) {
-        const script = document.createElement('script')
-        script.src = 'https://www.youtube.com/iframe_api'
-        document.head.appendChild(script)
-      }
-      const previous = window.onYouTubeIframeAPIReady
-      window.onYouTubeIframeAPIReady = () => {
-        previous?.()
-        init()
-      }
-    }
-
-    return () => {
-      cancelled = true
-      playerRef.current?.destroy?.()
-      playerRef.current = null
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!videoId) return
-    setError('')
-    if (!ready || !playerRef.current?.loadVideoById) return
-    playerRef.current.loadVideoById(videoId)
-    playerRef.current.playVideo?.()
-  }, [videoId, ready])
-
-  const toggle = () => {
-    if (!playerRef.current) return
-    if (playing) playerRef.current.pauseVideo?.()
-    else playerRef.current.playVideo?.()
-  }
-
+  const embedUrl = videoId
+    ? `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&playsinline=1&controls=1&rel=0&modestbranding=1`
+    : ''
   const musicUrl = videoId ? `https://music.youtube.com/watch?v=${encodeURIComponent(videoId)}` : ''
 
   return (
     <div className={`inapp-player ${current ? 'visible' : ''}`}>
-      <div className="video-frame"><div ref={hostRef} /></div>
+      <div className="video-frame">
+        {videoId && (
+          <iframe
+            key={videoId}
+            src={embedUrl}
+            title={current ? `${current.title} - ${current.artist}` : 'YouTube player'}
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        )}
+      </div>
       {current && (
         <div className="player-meta">
-          <span><b>{current.title}</b><small>{current.artist}</small>{error && <small className="player-error">{error}</small>}</span>
-          {error && musicUrl ? <a className="fallback-link" href={musicUrl} target="_blank" rel="noreferrer">YT Music</a> : <button onClick={toggle}>{playing ? 'Ⅱ' : '▶'}</button>}
+          <span><b>{current.title}</b><small>{current.artist}</small><small className="player-hint">자동재생이 막히면 영상의 ▶를 눌러주세요.</small></span>
+          {musicUrl && <a className="fallback-link" href={musicUrl} target="_blank" rel="noreferrer">YT Music</a>}
         </div>
       )}
     </div>
