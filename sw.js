@@ -1,4 +1,4 @@
-const CACHE_NAME = 'shark-pwa-v2';
+const CACHE_NAME = 'shark-pwa-v3';
 const APP_SHELL = [
   './',
   './index.html',
@@ -13,6 +13,7 @@ const APP_SHELL = [
   './catalog-pack.js',
   './artist-pack.js',
   './mega-catalog.js',
+  './user-request-pack.js',
   './direct-ids-pack.js',
   './direct-ids-generated.js',
   './manifest.webmanifest',
