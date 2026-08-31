@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><meta name="theme-color" content="#031118"><title>SHARK - Mood</title><link rel="stylesheet" href="./shark.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><meta name="theme-color" content="#031118"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="SHARK"><title>SHARK - Mood</title><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/shark-icon.svg" type="image/svg+xml"><link rel="stylesheet" href="./shark.css">
 </head>
 <body>
 <main class="page">
@@ -16,5 +16,6 @@ let selected='';const grid=document.getElementById('moodGrid'),go=document.getEl
 for(const [name,emoji,desc] of moods){const b=document.createElement('button');b.className='mood-button';b.innerHTML=`<span class="emoji">${emoji}</span><span class="mood-copy"><span class="mood-name">${name}</span><span class="mood-description">${desc}</span></span>`;b.onclick=()=>{selected=name;document.querySelectorAll('.mood-button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');go.classList.add('visible')};grid.appendChild(b)}
 go.onclick=()=>{if(selected)location.href=`./result.html?mood=${encodeURIComponent(selected)}`};document.getElementById('backButton').onclick=()=>location.href='./index.html';
 </script>
+<script src="./pwa.js"></script>
 </body>
 </html>
