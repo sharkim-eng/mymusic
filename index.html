@@ -1,16 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#031118" />
-    <meta name="description" content="기분에 맞는 음악을 추천하고 YouTube Music으로 연결하는 SHARK music app" />
-    <title>SHARK</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="./music-data.js"></script>
-    <script src="./ytmusic.js"></script>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#031118">
+  <title>SHARK</title>
+  <link rel="stylesheet" href="./shark.css">
+</head>
+<body>
+  <main class="page home-page">
+    <div class="glow"></div>
+    <header class="top"><div class="logo">SHARK</div><div class="logo-dot"></div></header>
+    <section class="hero">
+      <h1 class="title"><span>지금 기분을</span><span class="accent">노래로 바꿔줄게.</span></h1>
+      <p class="description">네가 지금 어떤 기분인지 골라줘.<br>그 순간에 어울리는 음악을 찾아줄게.</p>
+    </section>
+    <footer class="bottom">
+      <div class="glass-card"><a href="./mood.html" class="listen-button"><span>내 기분으로 음악 찾기</span><span class="arrow">→</span></a></div>
+      <div class="bottom-note">YOUR MOOD · YOUR MUSIC</div>
+    </footer>
+  </main>
+</body>
 </html>
