@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SHARK">
-  <rect width="512" height="512" rx="112" fill="#031118"/>
-  <circle cx="256" cy="256" r="154" fill="#0a2833"/>
-  <path d="M112 292c46-25 90-32 128-21 33 9 63 31 88 66-29 18-64 27-105 27-45 0-82-12-111-36z" fill="#a9f5f5"/>
-  <path d="M222 271c17-73 66-123 147-151-2 75-27 135-76 182z" fill="#6ce8ee"/>
-  <path d="M136 238c20-36 58-60 113-70l17 43c-51 8-86 27-108 57z" fill="#6ce8ee"/>
-  <path d="M170 203c-10 14-16 31-18 51M342 192c10 14 16 31 18 51" fill="none" stroke="#dffcff" stroke-width="18" stroke-linecap="round"/>
-  <path d="M145 211a35 35 0 0 1 28-32M367 211a35 35 0 0 0-28-32" fill="none" stroke="#dffcff" stroke-width="18" stroke-linecap="round"/>
-  <circle cx="231" cy="295" r="8" fill="#031118"/>
-  <path d="M250 316l18 0" stroke="#031118" stroke-width="7" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SHARK fin">
+  <defs>
+    <linearGradient id="fin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#263746"/>
+      <stop offset="0.55" stop-color="#0f1922"/>
+      <stop offset="1" stop-color="#05080b"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#000"/>
+  <path d="M132 326c43-5 70-15 83-49 17-45 4-106 15-157 7-31 24-45 47-34 45 22 79 101 111 188 12 33 31 47 58 52z" fill="url(#fin)" stroke="#5d7386" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M68 326c57-19 111 20 171 0s112-19 205 0" fill="none" stroke="#2b739d" stroke-width="11" stroke-linecap="round"/>
+  <path d="M84 349c54-15 104 16 160 0s108-16 184 0" fill="none" stroke="#82cff4" stroke-opacity=".72" stroke-width="7" stroke-linecap="round"/>
 </svg>
