@@ -20,6 +20,7 @@
 <script src="./extra-music.js"></script>
 <script src="./catalog-pack.js"></script>
 <script src="./artist-pack.js"></script>
+<script src="./mega-catalog.js"></script>
 <script src="./shark-core.js"></script>
 <script>
 const params=new URLSearchParams(location.search),requested=params.get('mood'),mood=SHARK.emoji[requested]?requested:'행복';
@@ -27,7 +28,7 @@ let genre='ALL',current=[],similarSeed=null;
 const list=document.getElementById('musicList'),moodText=document.getElementById('moodText');
 document.getElementById('selectedMood').textContent=SHARK.emoji[mood];
 
-function setMoodMessage(){moodText.textContent=similarSeed?`“${similarSeed.title}”과 비슷한 결의 노래를 골라봤어.`:SHARK.message[mood]}
+function setMoodMessage(){moodText.textContent=similarSeed?`“${similarSeed.title}”과 비슷한 결의 노래를 새로 골라봤어.`:SHARK.message[mood]}
 
 function createCard(song,i){
   const card=document.createElement('article');card.className='music-card';card.tabIndex=0;
@@ -37,7 +38,7 @@ function createCard(song,i){
   card.onclick=play;
   card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}};
   card.querySelector('.music-button').onclick=e=>{e.stopPropagation();play()};
-  card.querySelector('.similar-button').onclick=e=>{e.stopPropagation();showSimilar(song)};
+  card.querySelector('.similar-button').onclick=e=>{e.preventDefault();e.stopPropagation();showSimilar(song)};
   card.querySelector('.heart-button').onclick=e=>{e.stopPropagation();SHARK.toggleSaved(song);syncHearts()};
   return card;
 }
@@ -58,11 +59,13 @@ function more(){
   draw();
 }
 function showSimilar(song){
+  const previous=[...current];
   similarSeed=song;
-  current=SHARK.similar(song,mood,genre,5,[]);
+  current=SHARK.similar(song,mood,genre,5,previous);
+  if(!current.length)current=SHARK.similar(song,mood,genre,5,[song]);
   setMoodMessage();
   draw();
-  window.scrollTo({top:0,behavior:'smooth'});
+  list.scrollIntoView({behavior:'smooth',block:'start'});
 }
 function syncHearts(){[...list.querySelectorAll('.music-card')].forEach((card,i)=>{const b=card.querySelector('.heart-button'),saved=SHARK.isSaved(current[i]);b.textContent=saved?'♥':'♡';b.classList.toggle('saved',saved)})}
 
@@ -71,7 +74,7 @@ document.getElementById('moreButton').onclick=more;
 document.getElementById('randomButton').onclick=fresh;
 document.getElementById('playlistButton').onclick=()=>location.href='./playlist.html';
 document.getElementById('backButton').onclick=()=>location.href='./mood.html';
-setMoodMessage();fresh();
+fresh();
 </script>
 </body>
 </html>
