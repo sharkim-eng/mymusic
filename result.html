@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><meta name="theme-color" content="#031118"><title>SHARK - Music</title><link rel="stylesheet" href="./shark.css">
+</head>
+<body>
+<main class="page">
+  <header class="top"><button class="back" id="backButton" aria-label="뒤로 가기">←</button><div class="logo">SHARK</div><div class="logo-dot"></div></header>
+  <section class="result-head"><h1 class="result-title">오늘은 이런 노래 어때?</h1><div class="mood-summary"><div class="selected-mood-wrap" id="selectedMood">😊</div><p class="mood-text" id="moodText"></p></div></section>
+  <section class="genre-section"><div class="genre-row" id="genreRow"><button class="genre-button active" data-genre="ALL">전체</button><button class="genre-button" data-genre="KPOP">K-POP</button><button class="genre-button" data-genre="POP">POP</button><button class="genre-button" data-genre="INDIE">INDIE</button></div></section>
+  <div class="music-list" id="musicList"></div>
+  <button class="action-button" id="randomButton">다른 노래 추천</button>
+  <button class="action-button playlist-button" id="playlistButton">MY MUSIC</button>
+  <a class="text-link" href="./mood.html">다시 고르기</a>
+</main>
+<script src="https://kjyshark7514-coder.github.io/mood-music/music-data.js"></script>
+<script src="./shark-core.js"></script>
+<script>
+const params=new URLSearchParams(location.search),requested=params.get('mood'),mood=SHARK.emoji[requested]?requested:'행복';let genre='ALL',current=[];
+const list=document.getElementById('musicList');document.getElementById('selectedMood').textContent=SHARK.emoji[mood];document.getElementById('moodText').textContent=SHARK.message[mood];
+function render(){current=SHARK.five(mood,genre);list.innerHTML='';if(!current.length){list.innerHTML='<div class="empty-message">현재 바로 재생 링크가 확인된 곡이 없어.</div>';return}current.forEach((song,i)=>{const card=document.createElement('article');card.className='music-card';card.tabIndex=0;const saved=SHARK.isSaved(song);card.innerHTML=`<div class="music-top"><div class="music-number">${String(i+1).padStart(2,'0')}</div><div class="music-info"><h2>${song.title}</h2><p>${song.artist}</p></div></div><div class="button-row"><button class="music-button">♫ YouTube Music에서 재생</button><button class="heart-button ${saved?'saved':''}">${saved?'♥':'♡'}</button></div>`;const play=()=>SHARK.open(song);card.onclick=play;card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play()}};card.querySelector('.music-button').onclick=e=>{e.stopPropagation();play()};card.querySelector('.heart-button').onclick=e=>{e.stopPropagation();SHARK.toggleSaved(song);renderCurrent()};list.appendChild(card)})}
+function renderCurrent(){const cards=[...list.querySelectorAll('.music-card')];cards.forEach((card,i)=>{const b=card.querySelector('.heart-button'),saved=SHARK.isSaved(current[i]);b.textContent=saved?'♥':'♡';b.classList.toggle('saved',saved)})}
+document.querySelectorAll('.genre-button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.genre-button').forEach(x=>x.classList.remove('active'));b.classList.add('active');genre=b.dataset.genre;render()});document.getElementById('randomButton').onclick=render;document.getElementById('playlistButton').onclick=()=>location.href='./playlist.html';document.getElementById('backButton').onclick=()=>location.href='./mood.html';render();
+</script>
+</body>
+</html>
