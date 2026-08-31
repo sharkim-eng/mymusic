@@ -5,10 +5,16 @@
   // 3) YouTube Music search
   // Key format: normalized title|||normalized artist
 
+  // Auto-generated IDs are only trusted from resolver version 2+.
+  // Version 1 was intentionally disabled after tightening artist validation.
+  if (!window.SHARK_AUTO_ID_STATS || Number(window.SHARK_AUTO_ID_STATS.version || 0) < 2) {
+    window.SHARK_AUDIO_IDS = {};
+    window.SHARK_VIDEO_IDS = {};
+  }
+
   window.SHARK_AUDIO_IDS = Object.assign(window.SHARK_AUDIO_IDS || {}, {
     // Only put IDs here after confirming the link opens the album/audio track
-    // rather than a music video. This registry intentionally starts small and
-    // will be expanded as audio IDs are verified.
+    // rather than a music video. Manual entries override generated entries.
   });
 
   window.SHARK_VIDEO_IDS = Object.assign(window.SHARK_VIDEO_IDS || {}, {
