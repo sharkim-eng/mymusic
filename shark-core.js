@@ -15,9 +15,13 @@
 
   const key=s=>`${String(s?.title||'').trim().toLowerCase()}|||${String(s?.artist||'').trim().toLowerCase()}`;
   const artistKey=s=>String(s?.artist||'').trim().toLowerCase();
-  const externalIds=()=>window.SHARK_DIRECT_IDS||{};
-  const videoId=s=>String(s?.videoId||'').trim()||externalIds()[key(s)]||DIRECT.get(key(s))||'';
-  const hasExactLink=s=>Boolean(videoId(s));
+  const audioIds=()=>window.SHARK_AUDIO_IDS||{};
+  const videoIds=()=>window.SHARK_VIDEO_IDS||window.SHARK_DIRECT_IDS||{};
+  const audioId=s=>String(audioIds()[key(s)]||'').trim();
+  const fallbackVideoId=s=>String(s?.videoId||'').trim()||videoIds()[key(s)]||DIRECT.get(key(s))||'';
+  const videoId=s=>audioId(s)||fallbackVideoId(s);
+  const linkKind=s=>audioId(s)?'audio':fallbackVideoId(s)?'video':'search';
+  const hasExactLink=s=>linkKind(s)!=='search';
   const searchQuery=s=>`${String(s?.title||'').trim()} ${String(s?.artist||'').trim()}`.trim();
   const exactUrl=s=>{const id=videoId(s);return id?`https://music.youtube.com/watch?v=${encodeURIComponent(id)}`:''};
   const searchUrl=s=>`https://music.youtube.com/search?q=${encodeURIComponent(searchQuery(s))}`;
@@ -48,7 +52,7 @@
   };
   const clearRecent=()=>{saveRecent([]);return[]};
   const recordPlay=(s,mood='',genre='')=>{
-    const item={title:s.title,artist:s.artist,videoId:videoId(s),url:url(s),mood,genre,playedAt:Date.now()};
+    const item={title:s.title,artist:s.artist,videoId:videoId(s),url:url(s),mood,genre,playedAt:Date.now(),linkKind:linkKind(s)};
     const rest=loadRecent().filter(x=>key(x)!==key(s));
     saveRecent([item,...rest].slice(0,50));
     return item;
@@ -61,10 +65,10 @@
         const fallback=encodeURIComponent(target);
         location.href=`intent://music.youtube.com/watch?v=${encodeURIComponent(id)}#Intent;scheme=https;package=com.google.android.apps.youtube.music;S.browser_fallback_url=${fallback};end`;
       }else location.href=target;
-      return true;
+      return linkKind(s);
     }
     location.href=searchUrl(s);
-    return false;
+    return 'search';
   };
 
   const unique=list=>{
@@ -101,7 +105,8 @@
       const artistBoost=(likes.get(artistKey(s))||0)*2.2;
       const savedBoost=isSaved(s)?0.9:0;
       const exactBoost=hasExactLink(s)?0.35:0;
-      const score=Math.random()*(1+artistBoost+savedBoost)+exactBoost;
+      const audioBoost=linkKind(s)==='audio'?0.35:0;
+      const score=Math.random()*(1+artistBoost+savedBoost)+exactBoost+audioBoost;
       return {s,score};
     }).sort((a,b)=>b.score-a.score).map(x=>x.s);
   };
@@ -159,6 +164,7 @@
         if(genre==='ALL'||s.__genre===genre)score+=4;
         score+=(likes.get(artistKey(s))||0)*1.4;
         if(hasExactLink(s))score+=0.4;
+        if(linkKind(s)==='audio')score+=0.35;
         return {s,score};
       })
       .sort((a,b)=>b.score-a.score)
@@ -168,5 +174,5 @@
 
   const resetRecommendationHistory=()=>{localStorage.removeItem(KEYS.history);localStorage.removeItem(KEYS.last)};
 
-  window.SHARK={emoji,message,key,videoId,hasExactLink,exactUrl,searchUrl,url,loadSaved,saveSaved,toggleSaved,isSaved,loadRecent,saveRecent,removeRecent,clearRecent,recordPlay,open,recommend,five,similar,resetRecommendationHistory,poolFor};
+  window.SHARK={emoji,message,key,audioId,videoId,linkKind,hasExactLink,exactUrl,searchUrl,url,loadSaved,saveSaved,toggleSaved,isSaved,loadRecent,saveRecent,removeRecent,clearRecent,recordPlay,open,recommend,five,similar,resetRecommendationHistory,poolFor};
 })();
