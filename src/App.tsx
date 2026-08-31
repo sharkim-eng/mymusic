@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 
 type Screen = 'home' | 'mood' | 'result' | 'mymusic'
 type Mood = '행복' | '사랑' | '슬픔' | '화남' | '피곤' | '위로' | '신남' | 'SHARK'
@@ -113,7 +113,7 @@ function App() {
     </header>
   )
 
-  let content: JSX.Element
+  let content: ReactNode
 
   if (screen === 'home') {
     content = (
