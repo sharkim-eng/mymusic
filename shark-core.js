@@ -6,8 +6,8 @@
   const KEYS={
     playlist:'sharkPlaylist',
     recent:'sharkRecentPlaysV1',
-    history:'sharkRecommendationHistoryV6',
-    last:'sharkLastRecommendationsV6'
+    history:'sharkRecommendationHistoryV7',
+    last:'sharkLastRecommendationsV7'
   };
 
   const emoji={행복:'😊',사랑:'💗',슬픔:'😢',화남:'😡',피곤:'😴',위로:'🥺',신남:'🤩',SHARK:'🦈'};
@@ -16,13 +16,11 @@
   const key=s=>`${String(s?.title||'').trim().toLowerCase()}|||${String(s?.artist||'').trim().toLowerCase()}`;
   const artistKey=s=>String(s?.artist||'').trim().toLowerCase();
   const videoId=s=>String(s?.videoId||'').trim()||DIRECT.get(key(s))||'';
+  const hasExactLink=s=>Boolean(videoId(s));
   const searchQuery=s=>`${String(s?.title||'').trim()} ${String(s?.artist||'').trim()}`.trim();
-  const url=s=>{
-    const id=videoId(s);
-    return id
-      ? `https://music.youtube.com/watch?v=${encodeURIComponent(id)}`
-      : `https://music.youtube.com/search?q=${encodeURIComponent(searchQuery(s))}`;
-  };
+  const exactUrl=s=>{const id=videoId(s);return id?`https://music.youtube.com/watch?v=${encodeURIComponent(id)}`:''};
+  const searchUrl=s=>`https://music.youtube.com/search?q=${encodeURIComponent(searchQuery(s))}`;
+  const url=s=>exactUrl(s)||searchUrl(s);
 
   const parse=(storage,k,fallback)=>{try{const v=JSON.parse(storage.getItem(k)||'');return v??fallback}catch{return fallback}};
   const getData=()=>{try{return typeof musicData!=='undefined'?musicData:(window.musicData||{})}catch{return window.musicData||{}}};
@@ -46,7 +44,26 @@
     localStorage.setItem(KEYS.recent,JSON.stringify([item,...rest].slice(0,50)));
     return item;
   };
-  const open=(s,mood='',genre='')=>{recordPlay(s,mood,genre);const u=url(s);if(u)location.href=u};
+
+  const openExactYouTubeMusic=(s)=>{
+    const id=videoId(s),target=exactUrl(s);
+    if(!id||!target)return false;
+    const ua=navigator.userAgent||'';
+    if(/Android/i.test(ua)){
+      const fallback=encodeURIComponent(target);
+      location.href=`intent://music.youtube.com/watch?v=${encodeURIComponent(id)}#Intent;scheme=https;package=com.google.android.apps.youtube.music;S.browser_fallback_url=${fallback};end`;
+    }else{
+      location.href=target;
+    }
+    return true;
+  };
+
+  const open=(s,mood='',genre='')=>{
+    recordPlay(s,mood,genre);
+    if(openExactYouTubeMusic(s))return true;
+    location.href=searchUrl(s);
+    return false;
+  };
 
   const unique=list=>{
     const seen=new Set(),out=[];
@@ -82,7 +99,8 @@
       .map(s=>{
         const artistBoost=(likes.get(artistKey(s))||0)*2.6;
         const savedBoost=isSaved(s)?1.2:0;
-        const score=Math.random()*(1+artistBoost+savedBoost);
+        const exactBoost=hasExactLink(s)?6:0;
+        const score=exactBoost+Math.random()*(1+artistBoost+savedBoost);
         return {s,score};
       })
       .sort((a,b)=>b.score-a.score)
@@ -121,23 +139,23 @@
     const universe=unique([...current,...allSongs()]);
     const excluded=new Set([key(seed),...exclude.map(key)]);
     const seedArtist=artistKey(seed),likes=likedArtistCounts();
-    const ranked=universe
+    return universe
       .filter(s=>!excluded.has(key(s)))
       .map(s=>{
         let score=Math.random()*2;
         if(artistKey(s)===seedArtist)score+=20;
-        if(s.__mood===mood)score+=4;
-        if(genre==='ALL'||s.__genre===genre)score+=3;
+        if(s.__mood===mood)score+=5;
+        if(genre==='ALL'||s.__genre===genre)score+=4;
+        if(hasExactLink(s))score+=2.5;
         score+=(likes.get(artistKey(s))||0)*1.8;
         return {s,score};
       })
       .sort((a,b)=>b.score-a.score)
       .slice(0,count)
       .map(x=>x.s);
-    return ranked;
   };
 
   const resetRecommendationHistory=()=>{localStorage.removeItem(KEYS.history);localStorage.removeItem(KEYS.last)};
 
-  window.SHARK={emoji,message,key,videoId,url,loadSaved,saveSaved,toggleSaved,isSaved,loadRecent,recordPlay,open,recommend,five,similar,resetRecommendationHistory,poolFor};
+  window.SHARK={emoji,message,key,videoId,hasExactLink,exactUrl,searchUrl,url,loadSaved,saveSaved,toggleSaved,isSaved,loadRecent,recordPlay,open,openExactYouTubeMusic,recommend,five,similar,resetRecommendationHistory,poolFor};
 })();
