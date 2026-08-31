@@ -1,7 +1,17 @@
 (() => {
-  // Verified YouTube / YouTube Music video IDs.
+  // Playback priority:
+  // 1) verified YouTube Music audio / Topic ID
+  // 2) verified music-video ID
+  // 3) YouTube Music search
   // Key format: normalized title|||normalized artist
-  window.SHARK_DIRECT_IDS = Object.assign(window.SHARK_DIRECT_IDS || {}, {
+
+  window.SHARK_AUDIO_IDS = Object.assign(window.SHARK_AUDIO_IDS || {}, {
+    // Only put IDs here after confirming the link opens the album/audio track
+    // rather than a music video. This registry intentionally starts small and
+    // will be expanded as audio IDs are verified.
+  });
+
+  window.SHARK_VIDEO_IDS = Object.assign(window.SHARK_VIDEO_IDS || {}, {
     'no one noticed|||the marías': 'Qn8F_u0vBNI',
     "i don't know you|||the marías": 'YzKM5g_FwYU',
     'hush|||the marías': 'jFy03i_LRO8',
@@ -12,10 +22,6 @@
     'my kind of woman|||mac demarco': 'wIuBcb2T55Q',
     'crystalised|||the xx': 'Pib8eYDSFEI',
     'bath|||offonoff': 'uCg-i8GEovI',
-    'from the start|||laufey': 'lSD_L-xic9o',
-    'sofia|||clairo': 'L9l8zCOwEII',
-    'apocalypse|||cigarettes after sex': 'sElE_BfQ67s',
-    'k.|||cigarettes after sex': 'L4sbDxR22z4',
     'espresso|||sabrina carpenter': 'eVli-tstM5E',
     '24k magic|||bruno mars': 'UqyT8IEBkvY',
     'i am|||ive': '6ZUIwj3FgUY',
@@ -26,6 +32,13 @@
     'super shy|||newjeans': 'ArmDp-zijuc',
     'as it was|||harry styles': 'H5v3kku4y6Q',
     'all of me|||john legend': '450p7goxZqg',
-    'a thousand years|||christina perri': 'rtOvBOTyX00'
+    'a thousand years|||christina perri': 'rtOvBOTyX00',
+    'from the start|||laufey': 'lSD_L-xic9o',
+    'sofia|||clairo': 'L9l8zCOwEII',
+    'apocalypse|||cigarettes after sex': 'sElE_BfQ67s',
+    'k.|||cigarettes after sex': 'L4sbDxR22z4'
   });
+
+  // Backward compatibility for older code / stored entries.
+  window.SHARK_DIRECT_IDS = window.SHARK_VIDEO_IDS;
 })();
