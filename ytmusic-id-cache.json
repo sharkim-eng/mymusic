@@ -323,6 +323,17 @@
     "titleScore": 1.0,
     "videoId": "g92HIac9ufA"
   },
+  "after love|||클래지콰이(clazziquai)": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Clazziquai",
+    "matchedTitle": "After Love (Female Version) (After Love (Female Ver.))",
+    "query": "After Love 클래지콰이(Clazziquai)",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "T1jLM6BKUaY"
+  },
   "after school|||weeekly": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -817,6 +828,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "1E2ihUl6ed4"
+  },
+  "bad sad and mad|||bibi": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "BIBI",
+    "matchedTitle": "BAD SAD AND MAD",
+    "query": "BAD SAD AND MAD BIBI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "qn-oT0oBjvE"
   },
   "bad|||ateez": {
     "artistScore": 1.0,
@@ -1533,6 +1555,17 @@
     "titleScore": 1.0,
     "videoId": "DvdeE6KzrTc"
   },
+  "bumpa|||bibi": {
+    "artistScore": 1.0,
+    "kind": "video",
+    "matchedArtist": "BIBI",
+    "matchedTitle": "BUMPA",
+    "query": "BUMPA BIBI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "VoTuH7UHWLI"
+  },
   "bungee|||oh my girl": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -2081,6 +2114,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "S5FWGYJIX6w"
+  },
+  "cool waters|||sorn": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Sorn",
+    "matchedTitle": "Cool Waters",
+    "query": "Cool Waters SORN",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Idx2w7TG1iw"
   },
   "cool with you|||newjeans": {
     "artistScore": 1.0,
@@ -2773,6 +2817,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "gi49hU5RmQ8"
+  },
+  "drinks or coffee|||rosé": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "ROSÉ",
+    "matchedTitle": "drinks or coffee",
+    "query": "drinks or coffee ROSÉ",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "24ngiApesiM"
   },
   "drivers license|||olivia rodrigo": {
     "artistScore": 1.0,
@@ -3909,6 +3964,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "SmXbCBAHTfo"
+  },
+  "good night|||nell": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "넬 (Nell)",
+    "matchedTitle": "Good Night",
+    "query": "Good Night NELL",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "y2OguFc9LUQ"
   },
   "good time|||owl city & carly rae jepsen": {
     "artistScore": 1.0,
@@ -7135,6 +7201,17 @@
     "titleScore": 1.0,
     "videoId": "mCtVrf2x5BQ"
   },
+  "note and pencil|||seori": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Seori",
+    "matchedTitle": "NOTE AND PENCIL",
+    "query": "NOTE AND PENCIL Seori",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "-4ZDeh0P06Y"
+  },
   "nothing's gonna hurt you baby|||cigarettes after sex": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -7646,6 +7723,28 @@
     "titleScore": 1.0,
     "videoId": "Xol4RPRnuXQ"
   },
+  "p.d.a. (we just don't care)|||john legend": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "John Legend",
+    "matchedTitle": "P.D.A. (We Just Don't Care)",
+    "query": "P.D.A. (We Just Don't Care) John Legend",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "cSkQGQwKSoU"
+  },
+  "pado|||bibi": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "BIBI",
+    "matchedTitle": "PADO",
+    "query": "PADO BIBI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "ZKfC9UqopX4"
+  },
   "palette|||iu": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -8128,6 +8227,11 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "pxC7XsOHqxI"
+  },
+  "prologue|||구름": {
+    "kind": "unresolved",
+    "query": "Prologue 구름",
+    "resolverVersion": 2
   },
   "promise|||laufey": {
     "artistScore": 1.0,
@@ -9133,6 +9237,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "4De_ERjvuUI"
+  },
+  "slow motion|||karina": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Karina",
+    "matchedTitle": "Slow Motion",
+    "query": "Slow Motion Karina",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "seTW-MKrRKc"
   },
   "smells like teen spirit|||nirvana": {
     "artistScore": 1.0,
@@ -11651,6 +11766,17 @@
     "titleScore": 1.0,
     "videoId": "_5Jt_ULYSr4"
   },
+  "zen|||jennie": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "JENNIE",
+    "matchedTitle": "ZEN",
+    "query": "ZEN JENNIE",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Laf5egr03VY"
+  },
   "zombie|||day6": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -11744,6 +11870,17 @@
     "query": "날 사랑했다는 말을 다 믿었지 그리즐리(Grizzly)",
     "resolverVersion": 2
   },
+  "내 마음에 비친 내 모습|||유재하": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "유재하",
+    "matchedTitle": "내 마음에 비친 내 모습",
+    "query": "내 마음에 비친 내 모습 유재하",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "U-itOp4PgBs"
+  },
   "내 알고리즘은 망했나 봐|||그리즐리(grizzly)": {
     "kind": "unresolved",
     "query": "내 알고리즘은 망했나 봐 그리즐리(Grizzly)",
@@ -11768,6 +11905,17 @@
     "kind": "unresolved",
     "query": "니가 돌아올 희망은 없다는 걸 알아 경제환",
     "resolverVersion": 2
+  },
+  "다시 사랑하지 않을 다짐|||aleph": {
+    "artistScore": 1.0,
+    "kind": "video",
+    "matchedArtist": "ALEPH",
+    "matchedTitle": "다ㅅㅣㄴ 사랑하지 않을 다짐 짧게..",
+    "query": "다시 사랑하지 않을 다짐 ALEPH",
+    "resolverVersion": 2,
+    "score": 0.9152,
+    "titleScore": 0.8966,
+    "videoId": "8FQZHXNkj1Y"
   },
   "더 나은 사람|||구름": {
     "kind": "unresolved",
@@ -11943,6 +12091,11 @@
   "지금껏 그랬듯 앞으로도 계속|||구름": {
     "kind": "unresolved",
     "query": "지금껏 그랬듯 앞으로도 계속 구름",
+    "resolverVersion": 2
+  },
+  "춤|||클래지콰이(clazziquai)": {
+    "kind": "unresolved",
+    "query": "춤 클래지콰이(Clazziquai)",
     "resolverVersion": 2
   },
   "태양과 바다 (feat. 정지소)|||그리즐리(grizzly)": {
