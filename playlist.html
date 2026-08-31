@@ -19,13 +19,16 @@ function openSong(song){SHARK.open(song,song.mood||'',song.genre||'')}
 function source(){return view==='saved'?SHARK.loadSaved():SHARK.loadRecent()}
 function render(){
   current=source();list.innerHTML='';playAll.hidden=!current.length;
-  subtitle.textContent=view==='saved'?`좋아하는 노래 ${current.length}곡을 모아봤어.`:`최근 들은 노래 ${current.length}곡이야.`;
+  subtitle.textContent=view==='saved'?`좋아하는 노래 ${current.length}곡을 모아봤어.`:`최근 들은 노래 ${current.length}곡이야. 필요 없는 기록은 삭제할 수 있어.`;
   if(!current.length){list.innerHTML=`<div class="empty-message"><div style="font-size:40px;color:#6ce8ee;margin-bottom:12px">${view==='saved'?'♡':'♫'}</div>${view==='saved'?'아직 저장한 노래가 없어.<br>마음에 드는 노래에 ♥를 눌러 저장해봐.':'아직 들은 노래가 없어.<br>추천곡을 재생하면 여기에 기록돼.'}</div>`;return}
   current.forEach(song=>{
     const card=document.createElement('article');card.className='music-item';const saved=SHARK.isSaved(song);
-    card.innerHTML=`<div class="music-info"><h2>${song.title}</h2><p>${song.artist}</p>${view==='recent'&&song.mood?`<span class="history-meta">${SHARK.emoji[song.mood]||''} ${song.mood}${song.genre?` · ${song.genre}`:''}</span>`:''}</div><div class="music-actions"><button class="play-button">♫ YouTube Music</button><button class="heart-button ${saved?'saved':''}">${saved?'♥':'♡'}</button></div>`;
+    const removeButton=view==='recent'?'<button class="remove-button history-remove-button" aria-label="최근 기록에서 삭제" title="최근 기록에서 삭제">삭제</button>':'';
+    card.innerHTML=`<div class="music-info"><h2>${song.title}</h2><p>${song.artist}</p>${view==='recent'&&song.mood?`<span class="history-meta">${SHARK.emoji[song.mood]||''} ${song.mood}${song.genre?` · ${song.genre}`:''}</span>`:''}</div><div class="music-actions"><button class="play-button">♫ YouTube Music</button><button class="heart-button ${saved?'saved':''}">${saved?'♥':'♡'}</button>${removeButton}</div>`;
     card.querySelector('.play-button').onclick=()=>openSong(song);
     card.querySelector('.heart-button').onclick=()=>{SHARK.toggleSaved(song);render()};
+    const remove=card.querySelector('.history-remove-button');
+    if(remove)remove.onclick=()=>{SHARK.removeRecent(song);render()};
     list.appendChild(card)
   });
   playAll.onclick=()=>openSong(current[0])
