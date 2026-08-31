@@ -15,7 +15,8 @@
 
   const key=s=>`${String(s?.title||'').trim().toLowerCase()}|||${String(s?.artist||'').trim().toLowerCase()}`;
   const artistKey=s=>String(s?.artist||'').trim().toLowerCase();
-  const videoId=s=>String(s?.videoId||'').trim()||DIRECT.get(key(s))||'';
+  const externalIds=()=>window.SHARK_DIRECT_IDS||{};
+  const videoId=s=>String(s?.videoId||'').trim()||externalIds()[key(s)]||DIRECT.get(key(s))||'';
   const hasExactLink=s=>Boolean(videoId(s));
   const searchQuery=s=>`${String(s?.title||'').trim()} ${String(s?.artist||'').trim()}`.trim();
   const exactUrl=s=>{const id=videoId(s);return id?`https://music.youtube.com/watch?v=${encodeURIComponent(id)}`:''};
