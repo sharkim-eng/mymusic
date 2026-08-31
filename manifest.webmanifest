@@ -1,0 +1,38 @@
+{
+  "name": "SHARK Music",
+  "short_name": "SHARK",
+  "description": "기분에 맞는 음악을 추천하고 YouTube Music으로 바로 연결하는 SHARK 음악 앱",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#031118",
+  "theme_color": "#031118",
+  "lang": "ko-KR",
+  "icons": [
+    {
+      "src": "./icons/shark-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/shark-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "기분 고르기",
+      "short_name": "기분",
+      "url": "./mood.html"
+    },
+    {
+      "name": "MY MUSIC",
+      "short_name": "MY MUSIC",
+      "url": "./playlist.html"
+    }
+  ]
+}
