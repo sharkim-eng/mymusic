@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App'
 import './styles.css'
 import './mood-v2.css'
+import './player-fix.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
