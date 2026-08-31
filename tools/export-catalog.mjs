@@ -6,7 +6,8 @@ const sourceFiles = [
   'extra-music.js',
   'catalog-pack.js',
   'artist-pack.js',
-  'mega-catalog.js'
+  'mega-catalog.js',
+  'user-request-pack.js'
 ];
 
 const context = vm.createContext({ console });
