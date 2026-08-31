@@ -1,274 +1,430 @@
-import { ChangeEvent, useEffect, useMemo, useRef, useState } from 'react'
-import { deleteStoredTrack, getStoredTracks, saveStoredTrack } from './lib/musicDb'
-import type { StoredTrack, Track } from './types'
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react'
 
-const demos: Track[] = [
-  { id: 'demo-1', title: 'Blue Horizon', artist: 'MYMUSIC Demo', album: 'Ocean Drive', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', source: 'demo' },
-  { id: 'demo-2', title: 'After Rain', artist: 'MYMUSIC Demo', album: 'Night Air', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', source: 'demo' },
-  { id: 'demo-3', title: 'Slow Current', artist: 'MYMUSIC Demo', album: 'Blue Hour', src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', source: 'demo' },
+type Mood = 'happy' | 'calm' | 'focus' | 'energy' | 'emotional'
+type Genre = 'indie' | 'domestic' | 'international'
+type View = 'discover' | 'mymusic'
+
+type Track = {
+  id: string
+  videoId: string
+  title: string
+  artist: string
+  thumbnail: string
+  mood: Mood
+  genre: Genre
+}
+
+type YouTubeSearchItem = {
+  id?: { videoId?: string }
+  snippet?: {
+    title?: string
+    channelTitle?: string
+    thumbnails?: {
+      medium?: { url?: string }
+      high?: { url?: string }
+      default?: { url?: string }
+    }
+  }
+}
+
+type YouTubeVideoItem = {
+  id?: string
+  snippet?: YouTubeSearchItem['snippet']
+  status?: { embeddable?: boolean }
+}
+
+const moods: Array<{ id: Mood; emoji: string; label: string; query: string }> = [
+  { id: 'happy', emoji: '😊', label: '행복', query: 'happy upbeat music' },
+  { id: 'calm', emoji: '🌙', label: '차분', query: 'calm chill relaxing music' },
+  { id: 'focus', emoji: '🎧', label: '집중', query: 'focus study music' },
+  { id: 'energy', emoji: '⚡', label: '신남', query: 'energetic workout music' },
+  { id: 'emotional', emoji: '🌊', label: '감성', query: 'emotional indie music' },
 ]
 
-type RepeatMode = 'off' | 'all' | 'one'
-type Mood = 'happy' | 'calm' | 'focus' | 'energy' | 'sentimental'
-
-type MoodOption = {
-  id: Mood
-  label: string
-  emoji: string
-  description: string
-}
-
-const moodOptions: MoodOption[] = [
-  { id: 'happy', label: '행복', emoji: '😊', description: '기분 좋은 리듬' },
-  { id: 'calm', label: '차분', emoji: '🌙', description: '편안하게 쉬고 싶을 때' },
-  { id: 'focus', label: '집중', emoji: '🎧', description: '몰입이 필요한 순간' },
-  { id: 'energy', label: '신남', emoji: '⚡', description: '에너지를 올리고 싶을 때' },
-  { id: 'sentimental', label: '감성', emoji: '🌊', description: '감성에 잠기고 싶을 때' },
+const genres: Array<{ id: Genre; label: string; query: string }> = [
+  { id: 'indie', label: '인디', query: 'indie music' },
+  { id: 'domestic', label: '국내', query: 'korean music' },
+  { id: 'international', label: '해외', query: 'international pop music' },
 ]
 
-const defaultMoodTags: Record<string, Mood[]> = {
-  'demo-1': ['happy', 'energy'],
-  'demo-2': ['calm', 'focus'],
-  'demo-3': ['sentimental', 'calm'],
+const moodMap = Object.fromEntries(moods.map((m) => [m.id, m])) as Record<Mood, (typeof moods)[number]>
+const genreMap = Object.fromEntries(genres.map((g) => [g.id, g])) as Record<Genre, (typeof genres)[number]>
+
+const decode = (value = '') => {
+  const doc = new DOMParser().parseFromString(value, 'text/html')
+  return doc.documentElement.textContent || value
 }
 
-const time = (n = 0) => {
-  if (!Number.isFinite(n)) return '0:00'
-  return `${Math.floor(n / 60)}:${Math.floor(n % 60).toString().padStart(2, '0')}`
+const guessGenre = (title: string, artist: string): Genre => {
+  const text = `${title} ${artist}`
+  if (/indie|인디/i.test(text)) return 'indie'
+  if (/[가-힣]/.test(text)) return 'domestic'
+  return 'international'
 }
 
-const titleFromFile = (name: string) => name.replace(/\.[^/.]+$/, '')
+const guessMood = (title: string): Mood => {
+  if (/study|focus|work|집중|공부/i.test(title)) return 'focus'
+  if (/chill|calm|sleep|relax|차분|새벽|밤/i.test(title)) return 'calm'
+  if (/dance|party|workout|energy|신나는|신남/i.test(title)) return 'energy'
+  if (/sad|emotional|love|rain|감성|이별|사랑|비/i.test(title)) return 'emotional'
+  return 'happy'
+}
+
+const parseYouTubeId = (raw: string) => {
+  const value = raw.trim()
+  if (/^[\w-]{11}$/.test(value)) return value
+  try {
+    const url = new URL(value)
+    if (url.hostname.includes('youtu.be')) return url.pathname.split('/').filter(Boolean)[0] || ''
+    const v = url.searchParams.get('v')
+    if (v) return v
+    const parts = url.pathname.split('/').filter(Boolean)
+    const marker = parts.findIndex((p) => p === 'embed' || p === 'shorts' || p === 'live')
+    if (marker >= 0) return parts[marker + 1] || ''
+  } catch {
+    return ''
+  }
+  return ''
+}
 
 function App() {
-  const audio = useRef<HTMLAudioElement>(null)
-  const input = useRef<HTMLInputElement>(null)
-  const urls = useRef<string[]>([])
+  const playerHost = useRef<HTMLDivElement>(null)
+  const player = useRef<any>(null)
+  const endedHandler = useRef<() => void>(() => undefined)
 
-  const [local, setLocal] = useState<Track[]>([])
-  const [currentId, setCurrentId] = useState(demos[0].id)
-  const [playing, setPlaying] = useState(false)
-  const [position, setPosition] = useState(0)
-  const [duration, setDuration] = useState(0)
-  const [volume, setVolume] = useState(0.8)
+  const [view, setView] = useState<View>('discover')
   const [query, setQuery] = useState('')
-  const [favorites, setFavorites] = useState<string[]>(() => {
-    try { return JSON.parse(localStorage.getItem('mymusic-favorites') || '[]') as string[] } catch { return [] }
+  const [urlInput, setUrlInput] = useState('')
+  const [results, setResults] = useState<Track[]>([])
+  const [library, setLibrary] = useState<Track[]>(() => {
+    try { return JSON.parse(localStorage.getItem('mymusic-youtube-library') || '[]') as Track[] } catch { return [] }
   })
-  const [trackMoods, setTrackMoods] = useState<Record<string, Mood[]>>(() => {
-    try {
-      const saved = JSON.parse(localStorage.getItem('mymusic-moods') || '{}') as Record<string, Mood[]>
-      return { ...defaultMoodTags, ...saved }
-    } catch {
-      return defaultMoodTags
-    }
-  })
-  const [selectedMood, setSelectedMood] = useState<Mood>('happy')
-  const [favoritesOnly, setFavoritesOnly] = useState(false)
-  const [shuffle, setShuffle] = useState(false)
-  const [repeat, setRepeat] = useState<RepeatMode>('all')
+  const [apiKey, setApiKey] = useState(() => localStorage.getItem('mymusic-youtube-api-key') || '')
+  const [showSettings, setShowSettings] = useState(false)
+  const [mood, setMood] = useState<Mood | 'all'>('all')
+  const [genre, setGenre] = useState<Genre | 'all'>('all')
+  const [currentId, setCurrentId] = useState('')
+  const [playing, setPlaying] = useState(false)
+  const [volume, setVolume] = useState(80)
+  const [loading, setLoading] = useState(false)
   const [notice, setNotice] = useState('')
 
-  const tracks = useMemo(() => [...local, ...demos], [local])
-  const current = tracks.find((t) => t.id === currentId) ?? tracks[0]
-  const shown = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    return tracks.filter((t) => (!favoritesOnly || favorites.includes(t.id)) && (!q || `${t.title} ${t.artist} ${t.album}`.toLowerCase().includes(q)))
-  }, [tracks, query, favoritesOnly, favorites])
-  const mood = moodOptions.find((item) => item.id === selectedMood) ?? moodOptions[0]
-  const moodRecommendations = useMemo(
-    () => tracks.filter((track) => (trackMoods[track.id] ?? []).includes(selectedMood)),
-    [tracks, trackMoods, selectedMood],
-  )
-
-  useEffect(() => {
-    getStoredTracks().then((saved) => {
-      const loaded = saved.map((s) => {
-        const src = URL.createObjectURL(s.blob)
-        urls.current.push(src)
-        return { id: s.id, title: s.title, artist: s.artist, album: s.album, src, duration: s.duration, source: 'local' as const, addedAt: s.addedAt }
-      })
-      setLocal(loaded)
-    }).catch(() => setNotice('저장된 음악을 불러오지 못했습니다.'))
-    return () => urls.current.forEach(URL.revokeObjectURL)
-  }, [])
-
-  useEffect(() => { localStorage.setItem('mymusic-favorites', JSON.stringify(favorites)) }, [favorites])
-  useEffect(() => { localStorage.setItem('mymusic-moods', JSON.stringify(trackMoods)) }, [trackMoods])
-  useEffect(() => { if (audio.current) audio.current.volume = volume }, [volume])
-  useEffect(() => {
-    const el = audio.current
-    if (!el || !current) return
-    el.src = current.src
-    el.load()
-    setPosition(0)
-    setDuration(current.duration ?? 0)
-    if (playing) el.play().catch(() => setPlaying(false))
-  }, [current?.id])
+  useEffect(() => localStorage.setItem('mymusic-youtube-library', JSON.stringify(library)), [library])
+  useEffect(() => localStorage.setItem('mymusic-youtube-api-key', apiKey.trim()), [apiKey])
   useEffect(() => {
     if (!notice) return
-    const t = window.setTimeout(() => setNotice(''), 2500)
-    return () => clearTimeout(t)
+    const timer = window.setTimeout(() => setNotice(''), 2800)
+    return () => window.clearTimeout(timer)
   }, [notice])
 
-  const select = (track: Track) => {
-    if (track.id === currentId) return togglePlay()
-    setCurrentId(track.id)
+  const allKnown = useMemo(() => {
+    const map = new Map<string, Track>()
+    library.forEach((track) => map.set(track.id, track))
+    results.forEach((track) => map.set(track.id, track))
+    return [...map.values()]
+  }, [library, results])
+
+  const current = allKnown.find((track) => track.id === currentId)
+  const sourceTracks = view === 'mymusic' ? library : results
+  const shown = useMemo(() => sourceTracks.filter((track) =>
+    (mood === 'all' || track.mood === mood) && (genre === 'all' || track.genre === genre)
+  ), [sourceTracks, mood, genre])
+
+  const currentIndex = shown.findIndex((track) => track.id === currentId)
+
+  const next = () => {
+    if (!shown.length) return
+    const index = currentIndex < 0 ? 0 : (currentIndex + 1) % shown.length
+    playTrack(shown[index])
+  }
+
+  const previous = () => {
+    if (!shown.length) return
+    const index = currentIndex <= 0 ? shown.length - 1 : currentIndex - 1
+    playTrack(shown[index])
+  }
+
+  endedHandler.current = next
+
+  useEffect(() => {
+    const win = window as typeof window & { YT?: any; onYouTubeIframeAPIReady?: () => void }
+
+    const init = () => {
+      if (!playerHost.current || player.current || !win.YT?.Player) return
+      player.current = new win.YT.Player(playerHost.current, {
+        height: '100%',
+        width: '100%',
+        playerVars: { playsinline: 1, rel: 0, modestbranding: 1 },
+        events: {
+          onReady: (event: any) => {
+            event.target.setVolume(volume)
+            if (current?.videoId) event.target.cueVideoById(current.videoId)
+          },
+          onStateChange: (event: any) => {
+            if (event.data === 1) setPlaying(true)
+            if (event.data === 2 || event.data === 0) setPlaying(false)
+            if (event.data === 0) endedHandler.current()
+          },
+        },
+      })
+    }
+
+    if (win.YT?.Player) init()
+    else {
+      const existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]')
+      if (!existing) {
+        const script = document.createElement('script')
+        script.src = 'https://www.youtube.com/iframe_api'
+        document.head.appendChild(script)
+      }
+      const previousReady = win.onYouTubeIframeAPIReady
+      win.onYouTubeIframeAPIReady = () => {
+        previousReady?.()
+        init()
+      }
+    }
+
+    return () => {
+      player.current?.destroy?.()
+      player.current = null
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!current?.videoId || !player.current?.loadVideoById) return
+    player.current.loadVideoById(current.videoId)
+    player.current.setVolume?.(volume)
     setPlaying(true)
+  }, [current?.videoId])
+
+  useEffect(() => { player.current?.setVolume?.(volume) }, [volume])
+
+  const makeTrack = (item: YouTubeSearchItem, forcedMood?: Mood, forcedGenre?: Genre): Track | null => {
+    const videoId = item.id?.videoId
+    const title = decode(item.snippet?.title)
+    const artist = decode(item.snippet?.channelTitle)
+    if (!videoId) return null
+    return {
+      id: `yt-${videoId}`,
+      videoId,
+      title: title || 'YouTube Music',
+      artist: artist || 'YouTube',
+      thumbnail: item.snippet?.thumbnails?.high?.url || item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url || `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+      mood: forcedMood || guessMood(title),
+      genre: forcedGenre || guessGenre(title, artist),
+    }
+  }
+
+  const searchYouTube = async (term: string, forcedMood?: Mood, forcedGenre?: Genre) => {
+    const key = apiKey.trim()
+    if (!key) {
+      setShowSettings(true)
+      setNotice('YouTube 검색을 사용하려면 API 키를 입력해 주세요.')
+      return
+    }
+    const searchTerm = term.trim()
+    if (!searchTerm) return
+
+    setLoading(true)
+    try {
+      const params = new URLSearchParams({
+        part: 'snippet',
+        type: 'video',
+        videoCategoryId: '10',
+        videoEmbeddable: 'true',
+        maxResults: '18',
+        regionCode: 'KR',
+        q: searchTerm,
+        key,
+      })
+      const response = await fetch(`https://www.googleapis.com/youtube/v3/search?${params.toString()}`)
+      const data = await response.json() as { items?: YouTubeSearchItem[]; error?: { message?: string } }
+      if (!response.ok) throw new Error(data.error?.message || 'YouTube 검색에 실패했습니다.')
+      const tracks = (data.items || []).map((item) => makeTrack(item, forcedMood, forcedGenre)).filter(Boolean) as Track[]
+      setResults(tracks)
+      setView('discover')
+      setMood(forcedMood || 'all')
+      setGenre(forcedGenre || 'all')
+      if (!tracks.length) setNotice('검색 결과가 없습니다.')
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : 'YouTube 검색에 실패했습니다.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const submitSearch = (event: FormEvent) => {
+    event.preventDefault()
+    void searchYouTube(query)
+  }
+
+  const recommendMood = (id: Mood) => {
+    setMood(id)
+    const selected = moodMap[id]
+    const genreQuery = genre === 'all' ? '' : ` ${genreMap[genre].query}`
+    void searchYouTube(`${selected.query}${genreQuery}`, id, genre === 'all' ? undefined : genre)
+  }
+
+  const chooseGenre = (id: Genre | 'all') => {
+    setGenre(id)
+    if (id === 'all') return
+    const moodQuery = mood === 'all' ? '' : `${moodMap[mood].query} `
+    void searchYouTube(`${moodQuery}${genreMap[id].query}`, mood === 'all' ? undefined : mood, id)
+  }
+
+  const fetchTrackById = async (videoId: string): Promise<Track> => {
+    const key = apiKey.trim()
+    if (!key) {
+      return {
+        id: `yt-${videoId}`,
+        videoId,
+        title: 'YouTube Music',
+        artist: '링크로 추가한 음악',
+        thumbnail: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+        mood: mood === 'all' ? 'happy' : mood,
+        genre: genre === 'all' ? 'international' : genre,
+      }
+    }
+
+    const params = new URLSearchParams({ part: 'snippet,status', id: videoId, key })
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?${params.toString()}`)
+    const data = await response.json() as { items?: YouTubeVideoItem[]; error?: { message?: string } }
+    if (!response.ok) throw new Error(data.error?.message || '영상 정보를 가져오지 못했습니다.')
+    const item = data.items?.[0]
+    if (!item) throw new Error('해당 YouTube 영상을 찾을 수 없습니다.')
+    if (item.status?.embeddable === false) throw new Error('이 영상은 외부 사이트에서 재생할 수 없습니다.')
+    const fakeSearchItem: YouTubeSearchItem = { id: { videoId }, snippet: item.snippet }
+    return makeTrack(fakeSearchItem, mood === 'all' ? undefined : mood, genre === 'all' ? undefined : genre) as Track
+  }
+
+  const addUrl = async (event: FormEvent) => {
+    event.preventDefault()
+    const videoId = parseYouTubeId(urlInput)
+    if (!videoId) return setNotice('올바른 YouTube 또는 YouTube Music 주소를 입력해 주세요.')
+    try {
+      const track = await fetchTrackById(videoId)
+      setResults((items) => [track, ...items.filter((item) => item.id !== track.id)])
+      setUrlInput('')
+      setView('discover')
+      playTrack(track)
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : '링크를 추가하지 못했습니다.')
+    }
+  }
+
+  function playTrack(track: Track) {
+    setCurrentId(track.id)
+    if (player.current?.loadVideoById) {
+      player.current.loadVideoById(track.videoId)
+      setPlaying(true)
+    }
   }
 
   const togglePlay = () => {
-    const el = audio.current
-    if (!el) return
-    if (el.paused) el.play().then(() => setPlaying(true)).catch(() => setNotice('이 곡을 재생할 수 없습니다.'))
-    else { el.pause(); setPlaying(false) }
+    if (!current) return
+    if (playing) player.current?.pauseVideo?.()
+    else player.current?.playVideo?.()
   }
 
-  const next = () => {
-    if (!current || tracks.length === 0) return
-    if (repeat === 'one' && audio.current) {
-      audio.current.currentTime = 0
-      audio.current.play().catch(() => setPlaying(false))
-      return
+  const isSaved = (id: string) => library.some((track) => track.id === id)
+  const toggleHeart = (track: Track) => {
+    if (isSaved(track.id)) {
+      setLibrary((items) => items.filter((item) => item.id !== track.id))
+      setNotice('My Music에서 삭제했습니다.')
+    } else {
+      setLibrary((items) => [track, ...items])
+      setNotice('My Music에 저장했습니다.')
     }
-    if (shuffle && tracks.length > 1) {
-      const candidates = tracks.filter((t) => t.id !== current.id)
-      setCurrentId(candidates[Math.floor(Math.random() * candidates.length)].id)
-      setPlaying(true)
-      return
+  }
+
+  const updateTrackMeta = (track: Track, kind: 'mood' | 'genre') => {
+    const nextTrack = { ...track }
+    if (kind === 'mood') {
+      const index = moods.findIndex((item) => item.id === track.mood)
+      nextTrack.mood = moods[(index + 1) % moods.length].id
+    } else {
+      const index = genres.findIndex((item) => item.id === track.genre)
+      nextTrack.genre = genres[(index + 1) % genres.length].id
     }
-    const i = tracks.findIndex((t) => t.id === current.id)
-    if (i < tracks.length - 1) { setCurrentId(tracks[i + 1].id); setPlaying(true) }
-    else if (repeat === 'all') { setCurrentId(tracks[0].id); setPlaying(true) }
-    else setPlaying(false)
+    setResults((items) => items.map((item) => item.id === track.id ? nextTrack : item))
+    setLibrary((items) => items.map((item) => item.id === track.id ? nextTrack : item))
   }
-
-  const prev = () => {
-    const el = audio.current
-    if (el && el.currentTime > 3) { el.currentTime = 0; return }
-    const i = tracks.findIndex((t) => t.id === current?.id)
-    setCurrentId(tracks[i <= 0 ? tracks.length - 1 : i - 1].id)
-    setPlaying(true)
-  }
-
-  const toggleFavorite = (id: string) => setFavorites((v) => v.includes(id) ? v.filter((x) => x !== id) : [...v, id])
-
-  const cycleTrackMood = (track: Track) => {
-    const existing = trackMoods[track.id] ?? []
-    const currentMood = existing[0]
-    const index = moodOptions.findIndex((item) => item.id === currentMood)
-    const nextMood = moodOptions[(index + 1 + moodOptions.length) % moodOptions.length].id
-    setTrackMoods((value) => ({ ...value, [track.id]: [nextMood] }))
-    const label = moodOptions.find((item) => item.id === nextMood)?.label
-    setNotice(`${track.title} → ${label} 기분으로 분류했습니다.`)
-  }
-
-  const playMood = () => {
-    if (!moodRecommendations.length) return setNotice('이 기분으로 분류된 곡이 아직 없습니다.')
-    const first = moodRecommendations[Math.floor(Math.random() * moodRecommendations.length)]
-    setCurrentId(first.id)
-    setPlaying(true)
-  }
-
-  const importFiles = async (files: File[]) => {
-    const audioFiles = files.filter((f) => f.type.startsWith('audio/') || /\.(mp3|m4a|wav|ogg|flac)$/i.test(f.name))
-    if (!audioFiles.length) return setNotice('오디오 파일을 선택해 주세요.')
-    const added: Track[] = []
-    for (const file of audioFiles) {
-      const id = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random()}`
-      const stored: StoredTrack = { id, title: titleFromFile(file.name), artist: '내 음악', album: 'Local Library', blob: file, addedAt: Date.now() }
-      await saveStoredTrack(stored)
-      const src = URL.createObjectURL(file)
-      urls.current.push(src)
-      added.push({ ...stored, src, source: 'local' })
-    }
-    setLocal((v) => [...added, ...v])
-    setCurrentId(added[0].id)
-    setPlaying(true)
-    setNotice(`${added.length}곡을 추가했습니다. 곡 오른쪽 기분 버튼으로 태그를 지정해 보세요.`)
-  }
-
-  const onFiles = (e: ChangeEvent<HTMLInputElement>) => {
-    void importFiles(Array.from(e.target.files ?? []))
-    e.target.value = ''
-  }
-
-  const remove = async (track: Track) => {
-    if (track.source !== 'local') return
-    await deleteStoredTrack(track.id)
-    URL.revokeObjectURL(track.src)
-    setLocal((v) => v.filter((t) => t.id !== track.id))
-    setFavorites((v) => v.filter((id) => id !== track.id))
-    setTrackMoods((value) => {
-      const nextValue = { ...value }
-      delete nextValue[track.id]
-      return nextValue
-    })
-    if (track.id === currentId) { setCurrentId(demos[0].id); setPlaying(false) }
-  }
-
-  const cycleRepeat = () => setRepeat((v) => v === 'off' ? 'all' : v === 'all' ? 'one' : 'off')
 
   return <div className="app">
-    <audio ref={audio} onTimeUpdate={(e) => setPosition(e.currentTarget.currentTime)} onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || 0)} onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={next} />
-
-    <aside>
+    <aside className="sidebar">
       <div className="logo"><span>♫</span> MYMUSIC</div>
-      <button className={!favoritesOnly ? 'active' : ''} onClick={() => setFavoritesOnly(false)}>▦ 모든 음악</button>
-      <button className={favoritesOnly ? 'active' : ''} onClick={() => setFavoritesOnly(true)}>♥ 좋아요</button>
+      <button className={view === 'discover' ? 'active' : ''} onClick={() => setView('discover')}>⌕ 둘러보기</button>
+      <button className={view === 'mymusic' ? 'active' : ''} onClick={() => setView('mymusic')}>♥ My Music <b>{library.length}</b></button>
+      <div className="sideLabel">장르</div>
+      {genres.map((item) => <button key={item.id} className={genre === item.id ? 'active' : ''} onClick={() => chooseGenre(item.id)}># {item.label}</button>)}
       <div className="spacer" />
-      <p>{local.length}곡이 이 브라우저에 저장됨</p>
-      <button className="add" onClick={() => input.current?.click()}>＋ 음악 추가</button>
+      <button onClick={() => setShowSettings((value) => !value)}>⚙ YouTube 설정</button>
+      <p>공식 YouTube 임베드 플레이어와 YouTube Data API를 사용합니다.</p>
     </aside>
 
     <main>
       <header>
-        <div><small>YOUR SOUND, YOUR SPACE</small><h1>{favoritesOnly ? '좋아하는 음악' : '내 플레이리스트'}</h1></div>
-        <input className="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="곡 또는 아티스트 검색" />
+        <div><small>YOUR MOOD, YOUR MUSIC</small><h1>{view === 'mymusic' ? 'My Music' : '오늘 뭐 들을까요?'}</h1></div>
+        <form className="searchForm" onSubmit={submitSearch}>
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="노래, 가수 검색" />
+          <button disabled={loading}>{loading ? '검색 중' : '검색'}</button>
+        </form>
       </header>
 
-      <section className="hero" onClick={() => input.current?.click()}>
-        <div><b>MYMUSIC</b><h2>원하는 음악을<br />바로 재생하세요.</h2><p>MP3 · M4A · WAV 파일을 추가하면 브라우저에 저장됩니다.</p><button>내 음악 추가</button></div>
-        <div className="record">♪</div>
+      <section className="moodPanel">
+        <div className="moodCopy"><small>MOOD RECOMMENDATION</small><h2>지금 기분이 어때요?</h2><p>기분을 고르면 YouTube 음악 검색 결과를 그 분위기에 맞춰 추천합니다.</p></div>
+        <div className="moodButtons">
+          {moods.map((item) => <button key={item.id} className={mood === item.id ? 'selected' : ''} onClick={() => recommendMood(item.id)}><span>{item.emoji}</span>{item.label}</button>)}
+        </div>
       </section>
 
-      <section className="moodSection">
-        <div className="sectionTitle"><div><small>MOOD RECOMMENDATION</small><h3>지금 기분이 어때요?</h3></div><span>기분에 맞는 음악을 골라드려요</span></div>
-        <div className="moodButtons">
-          {moodOptions.map((item) => <button key={item.id} className={selectedMood === item.id ? 'selected' : ''} onClick={() => setSelectedMood(item.id)}><span>{item.emoji}</span><b>{item.label}</b><small>{item.description}</small></button>)}
-        </div>
-        <div className="moodMix">
-          <div className="moodSummary"><span className="moodEmoji">{mood.emoji}</span><div><small>FOR YOUR MOOD</small><h4>{mood.label}한 지금, 이런 음악 어때요?</h4><p>{moodRecommendations.length ? `${moodRecommendations.length}곡을 추천합니다.` : '아직 이 기분으로 분류된 곡이 없습니다.'}</p></div><button onClick={playMood}>▶ 이 기분으로 재생</button></div>
-          <div className="recommendations">
-            {moodRecommendations.slice(0, 4).map((track) => <button key={track.id} className={track.id === current?.id ? 'playing' : ''} onClick={() => select(track)}><span className="cover">♪</span><span><b>{track.title}</b><small>{track.artist}</small></span></button>)}
-            {!moodRecommendations.length && <div className="moodEmpty">아래 곡 목록의 기분 버튼을 눌러 곡을 분류해 보세요.</div>}
-          </div>
-        </div>
+      <section className="quickBar">
+        <div className="genreFilters"><button className={genre === 'all' ? 'selected' : ''} onClick={() => setGenre('all')}>전체</button>{genres.map((item) => <button key={item.id} className={genre === item.id ? 'selected' : ''} onClick={() => chooseGenre(item.id)}>{item.label}</button>)}</div>
+        <form className="urlForm" onSubmit={addUrl}>
+          <input value={urlInput} onChange={(event) => setUrlInput(event.target.value)} placeholder="YouTube Music 링크 붙여넣기" />
+          <button>재생</button>
+        </form>
       </section>
+
+      {(showSettings || !apiKey) && <section className="settingsPanel">
+        <div><b>YouTube Data API 키</b><p>검색 기능에만 사용합니다. 키는 이 브라우저에만 저장되며 GitHub 저장소에는 올라가지 않습니다. Google Cloud에서 HTTP 리퍼러 제한을 설정하는 것을 권장합니다.</p></div>
+        <input type="password" value={apiKey} onChange={(event) => setApiKey(event.target.value)} placeholder="API key" />
+        <button onClick={() => setShowSettings(false)}>완료</button>
+      </section>}
+
+      {current && <section className="nowPlaying">
+        <div className="videoShell"><div ref={playerHost} id="youtube-player" /></div>
+        <div className="nowInfo">
+          <small>NOW PLAYING</small>
+          <h2>{current.title}</h2>
+          <p>{current.artist}</p>
+          <div className="trackTags"><button onClick={() => updateTrackMeta(current, 'mood')}>{moodMap[current.mood].emoji} {moodMap[current.mood].label}</button><button onClick={() => updateTrackMeta(current, 'genre')}># {genreMap[current.genre].label}</button></div>
+          <button className={`heartLarge ${isSaved(current.id) ? 'saved' : ''}`} onClick={() => toggleHeart(current)}>{isSaved(current.id) ? '♥ My Music에 저장됨' : '♡ My Music에 저장'}</button>
+        </div>
+      </section>}
 
       <section className="library">
-        <div className="sectionTitle"><h3>Library</h3><span>{shown.length} tracks</span></div>
-        <div className="head"><span>#</span><span>곡</span><span>앨범</span><span>시간</span><span /></div>
-        {shown.map((track, index) => {
-          const trackMood = moodOptions.find((item) => item.id === (trackMoods[track.id] ?? [])[0])
-          return <div className={`row ${track.id === current?.id ? 'selected' : ''}`} key={track.id}>
-            <button className="index" onClick={() => select(track)}>{track.id === current?.id && playing ? '▮▮' : index + 1}</button>
-            <button className="song" onClick={() => select(track)}><span className="cover">♪</span><span><b>{track.title}</b><small>{track.artist}{trackMood ? ` · ${trackMood.emoji} ${trackMood.label}` : ''}</small></span></button>
-            <span className="album">{track.album}</span>
-            <span>{track.duration ? time(track.duration) : '—'}</span>
-            <span className="actions"><button className="moodTag" title="기분 태그 변경" onClick={() => cycleTrackMood(track)}>{trackMood?.emoji ?? '＋🙂'}</button><button onClick={() => toggleFavorite(track.id)}>{favorites.includes(track.id) ? '♥' : '♡'}</button>{track.source === 'local' && <button onClick={() => void remove(track)}>×</button>}</span>
-          </div>
-        })}
-        {!shown.length && <div className="empty">표시할 음악이 없습니다.</div>}
+        <div className="sectionTitle"><div><small>{view === 'mymusic' ? 'SAVED TRACKS' : 'YOUTUBE RESULTS'}</small><h3>{view === 'mymusic' ? '내가 저장한 음악' : '추천 · 검색 결과'}</h3></div><span>{shown.length} tracks</span></div>
+        {!shown.length && <div className="empty">
+          <div>♫</div>
+          <b>{view === 'mymusic' ? '아직 저장한 음악이 없습니다.' : '검색하거나 기분을 선택해 보세요.'}</b>
+          <p>{view === 'mymusic' ? '곡의 하트를 누르면 이곳 My Music으로 이동합니다.' : 'YouTube Music 링크를 붙여넣으면 API 키가 없어도 바로 재생할 수 있습니다.'}</p>
+        </div>}
+        <div className="trackGrid">
+          {shown.map((track) => <article key={track.id} className={`trackCard ${currentId === track.id ? 'playing' : ''}`} onClick={() => playTrack(track)}>
+            <div className="thumb"><img src={track.thumbnail} alt="" /><span className="playBadge">{currentId === track.id && playing ? 'Ⅱ' : '▶'}</span><button className={`heart ${isSaved(track.id) ? 'saved' : ''}`} aria-label="My Music" onClick={(event) => { event.stopPropagation(); toggleHeart(track) }}>{isSaved(track.id) ? '♥' : '♡'}</button></div>
+            <div className="cardBody"><b>{track.title}</b><p>{track.artist}</p><div className="miniTags"><button onClick={(event) => { event.stopPropagation(); updateTrackMeta(track, 'mood') }}>{moodMap[track.mood].emoji} {moodMap[track.mood].label}</button><button onClick={(event) => { event.stopPropagation(); updateTrackMeta(track, 'genre') }}># {genreMap[track.genre].label}</button></div></div>
+          </article>)}
+        </div>
       </section>
     </main>
 
     {current && <footer>
-      <div className="now"><span className="cover big">♪</span><span><b>{current.title}</b><small>{current.artist}</small></span></div>
-      <div className="center"><div className="controls"><button className={shuffle ? 'on' : ''} onClick={() => setShuffle((v) => !v)}>⤨</button><button onClick={prev}>◀</button><button className="play" onClick={togglePlay}>{playing ? 'Ⅱ' : '▶'}</button><button onClick={next}>▶</button><button className={repeat !== 'off' ? 'on' : ''} onClick={cycleRepeat}>{repeat === 'one' ? '↻1' : '↻'}</button></div><div className="progress"><span>{time(position)}</span><input type="range" min="0" max={Math.max(duration, 1)} step="0.1" value={Math.min(position, Math.max(duration, 1))} onChange={(e) => { const n = Number(e.target.value); if (audio.current) audio.current.currentTime = n; setPosition(n) }} /><span>{time(duration)}</span></div></div>
-      <div className="volume">🔊 <input type="range" min="0" max="1" step="0.01" value={volume} onChange={(e) => setVolume(Number(e.target.value))} /></div>
+      <div className="footerTrack"><img src={current.thumbnail} alt="" /><span><b>{current.title}</b><small>{current.artist}</small></span></div>
+      <div className="footerControls"><button onClick={previous}>◀</button><button className="mainPlay" onClick={togglePlay}>{playing ? 'Ⅱ' : '▶'}</button><button onClick={next}>▶</button></div>
+      <div className="footerVolume">🔊 <input type="range" min="0" max="100" value={volume} onChange={(event) => setVolume(Number(event.target.value))} /></div>
     </footer>}
 
-    <input ref={input} hidden type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac" multiple onChange={onFiles} />
     {notice && <div className="notice">{notice}</div>}
   </div>
 }
