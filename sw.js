@@ -1,4 +1,4 @@
-const CACHE_NAME = 'shark-pwa-v1';
+const CACHE_NAME = 'shark-pwa-v2';
 const APP_SHELL = [
   './',
   './index.html',
@@ -16,6 +16,8 @@ const APP_SHELL = [
   './direct-ids-pack.js',
   './direct-ids-generated.js',
   './manifest.webmanifest',
+  './icons/shark-192.png',
+  './icons/apple-touch-icon.png',
   './icons/shark-icon.svg',
   './icons/shark-maskable.svg'
 ];
