@@ -6,10 +6,16 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#031118",
-  "theme_color": "#031118",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "lang": "ko-KR",
   "icons": [
+    {
+      "src": "./icons/shark-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "./icons/shark-icon.svg",
       "sizes": "any",
