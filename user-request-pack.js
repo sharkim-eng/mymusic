@@ -196,4 +196,181 @@
     ['JOTTO', 'BIBI']
   ]);
 
+
+  // 2026-09-22: broad expansion across every mood, not only SHARK.
+  add('행복', 'KPOP', [
+    ['SMILEY', 'YENA feat. BIBI'],
+    ['POP!', 'NAYEON'],
+    ['Blue Hour', 'TXT'],
+    ['_WORLD', 'SEVENTEEN'],
+    ['Hello', 'JOY'],
+    ['Rollin\'', 'Brave Girls']
+  ]);
+  add('행복', 'POP', [
+    ['Beautiful Day', 'U2'],
+    ['Best Day of My Life', 'American Authors'],
+    ['I Ain\'t Worried', 'OneRepublic'],
+    ['Island in the Sun', 'Weezer'],
+    ['Lovely Day', 'Bill Withers'],
+    ['Walking on a Dream', 'Empire of the Sun']
+  ]);
+  add('행복', 'INDIE', [
+    ['Sunflower', 'Rex Orange County'],
+    ['Loving Is Easy', 'Rex Orange County feat. Benny Sings'],
+    ['Are You Bored Yet?', 'Wallows feat. Clairo'],
+    ['Everytime', 'boy pablo'],
+    ['Dance, Baby!', 'boy pablo'],
+    ['Kilby Girl', 'The Backseat Lovers']
+  ]);
+
+  add('사랑', 'KPOP', [
+    ['Love Maze', 'BTS'],
+    ['Dream', 'Suzy & BAEKHYUN'],
+    ['Perhaps Love', 'HowL & J'],
+    ['Everytime', 'CHEN & Punch'],
+    ['Love Belt', 'JONGHYUN feat. Younha'],
+    ['Love Me Like That', 'Sam Kim']
+  ]);
+  add('사랑', 'POP', [
+    ['Like I\'m Gonna Lose You', 'Meghan Trainor feat. John Legend'],
+    ['Kiss Me More', 'Doja Cat feat. SZA'],
+    ['L-O-V-E', 'Nat King Cole'],
+    ['Can\'t Take My Eyes Off You', 'Frankie Valli'],
+    ['Lovin\' You', 'Minnie Riperton'],
+    ['I Choose You', 'Sara Bareilles']
+  ]);
+  add('사랑', 'INDIE', [
+    ['We Fell in Love in October', 'girl in red'],
+    ['Sea of Love', 'Cat Power'],
+    ['First Day of My Life', 'Bright Eyes'],
+    ['Fade Into You', 'Mazzy Star'],
+    ['Home', 'Edward Sharpe & The Magnetic Zeros'],
+    ['Nothing', 'Bruno Major']
+  ]);
+
+  add('슬픔', 'KPOP', [
+    ['Still Love You', 'LEE HONG GI & Yoo Hwe Seung'],
+    ['Ending Scene', 'IU'],
+    ['Only Then', 'Roy Kim'],
+    ['Wild Flower', 'Park Hyo Shin'],
+    ['Goodbye', '2NE1'],
+    ['I Miss You', 'SOYOU']
+  ]);
+  add('슬픔', 'POP', [
+    ['All I Ask', 'Adele'],
+    ['ceilings', 'Lizzy McAlpine'],
+    ['Lose You to Love Me', 'Selena Gomez'],
+    ['What Was I Made For?', 'Billie Eilish'],
+    ['the 1', 'Taylor Swift'],
+    ['Happier', 'Ed Sheeran']
+  ]);
+  add('슬픔', 'INDIE', [
+    ['About Today', 'The National'],
+    ['I Need My Girl', 'The National'],
+    ['Rivers and Roads', 'The Head and the Heart'],
+    ['The Bug Collector', 'Haley Heynderickx'],
+    ['Between the Bars', 'Elliott Smith'],
+    ['Lua', 'Bright Eyes']
+  ]);
+
+  add('화남', 'KPOP', [
+    ['Monster', 'EXO'],
+    ['Obsession', 'EXO'],
+    ['Shoot Me', 'DAY6'],
+    ['Scream', 'Dreamcatcher'],
+    ['BOCA', 'Dreamcatcher'],
+    ['Hard Carry', 'GOT7']
+  ]);
+  add('화남', 'POP', [
+    ['abcdefu', 'GAYLE'],
+    ['good 4 u', 'Olivia Rodrigo'],
+    ['Since U Been Gone', 'Kelly Clarkson'],
+    ['So What', 'P!nk'],
+    ['I Hate U', 'SZA'],
+    ['You Oughta Know', 'Alanis Morissette']
+  ]);
+  add('화남', 'INDIE', [
+    ['Pedestrian at Best', 'Courtney Barnett'],
+    ['Seventeen', 'Sharon Van Etten'],
+    ['Kyoto', 'Phoebe Bridgers'],
+    ['Gimme All Your Love', 'Alabama Shakes'],
+    ['Black Sheep', 'Metric'],
+    ['Tick Tick Boom', 'The Hives']
+  ]);
+
+  add('피곤', 'KPOP', [
+    ['Jazz Bar', 'Dreamcatcher'],
+    ['247', 'SEVENTEEN'],
+    ['Bittersweet', 'WONWOO & MINGYU feat. LEE HI'],
+    ['Amusement Park', 'BAEKHYUN'],
+    ['Try Again', 'd.ear & Jaehyun'],
+    ['365&7', 'pH-1 feat. JAMIE']
+  ]);
+  add('피곤', 'POP', [
+    ['Better', 'Khalid'],
+    ['Talk', 'Khalid'],
+    ['Damage', 'H.E.R.'],
+    ['Focus', 'H.E.R.'],
+    ['Coffee', 'Miguel'],
+    ['Like I Want You', 'Giveon']
+  ]);
+  add('피곤', 'INDIE', [
+    ['State Lines', 'Novo Amor'],
+    ['Keep Me', 'Novo Amor'],
+    ['Roslyn', 'Bon Iver & St. Vincent'],
+    ['Coffee', 'beabadoobee'],
+    ['Featherstone', 'The Paper Kites'],
+    ['San Luis', 'Gregory Alan Isakov']
+  ]);
+
+  add('위로', 'KPOP', [
+    ['Yawn', 'SEVENTEEN'],
+    ['To You', 'SEVENTEEN'],
+    ['Child', 'MARK'],
+    ['Dear DREAM', 'NCT DREAM'],
+    ['Turbulence', 'ATEEZ'],
+    ['Good Night', 'NELL']
+  ]);
+  add('위로', 'POP', [
+    ['Matilda', 'Harry Styles'],
+    ['I Lived', 'OneRepublic'],
+    ['You Will Be Found', 'Ben Platt'],
+    ['Shake It Out', 'Florence + The Machine'],
+    ['Rainbow', 'Kacey Musgraves'],
+    ['Keep Your Head Up', 'Ben Howard']
+  ]);
+  add('위로', 'INDIE', [
+    ['Big Black Car', 'Gregory Alan Isakov'],
+    ['Ends of the Earth', 'Lord Huron'],
+    ['Old Pine', 'Ben Howard'],
+    ['Only Love', 'Ben Howard'],
+    ['Orange Sky', 'Alexi Murdoch'],
+    ['Santa Monica Dream', 'Angus & Julia Stone']
+  ]);
+
+  add('신남', 'KPOP', [
+    ['Run BTS', 'BTS'],
+    ['MAGO', 'GFRIEND'],
+    ['After School', 'Weeekly'],
+    ['I CAN\'T STOP ME', 'TWICE'],
+    ['DASH', 'NMIXX'],
+    ['Armageddon', 'aespa']
+  ]);
+  add('신남', 'POP', [
+    ['Rush', 'Troye Sivan'],
+    ['Houdini', 'Dua Lipa'],
+    ['Training Season', 'Dua Lipa'],
+    ['About Damn Time', 'Lizzo'],
+    ['Don\'t Go Yet', 'Camila Cabello'],
+    ['Break My Soul', 'Beyoncé']
+  ]);
+  add('신남', 'INDIE', [
+    ['Anna Sun', 'WALK THE MOON'],
+    ['Electric Love', 'BØRNS'],
+    ['Safe and Sound', 'Capital Cities'],
+    ['Dreaming', 'Smallpools'],
+    ['Greek Tragedy', 'The Wombats'],
+    ['Sweet Disposition', 'The Temper Trap']
+  ]);
+
 })();
