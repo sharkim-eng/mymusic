@@ -101,7 +101,7 @@
 
   // 2026-09-22: expanded SHARK night-drive recommendations.
   add('SHARK', 'POP', [
-    ['Hard to Say', 'GRAACE feat. I.E.'],
+    ['Hard to Say', 'Karencici'],
     ['Evergreen (You Didn’t Deserve Me at All)', 'Omar Apollo'],
     ['Ugotme', 'Omar Apollo'],
     ['Snooze', 'SZA'],
