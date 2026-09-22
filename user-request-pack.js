@@ -373,4 +373,16 @@
     ['Sweet Disposition', 'The Temper Trap']
   ]);
 
+
+  // Girls' Generation-HRS (효리수) official debut single.
+  add('신남', 'KPOP', [
+    ['Skibidi', "Girls' Generation-HRS"]
+  ]);
+  add('행복', 'KPOP', [
+    ['Lowkey In Love', "Girls' Generation-HRS"]
+  ]);
+  add('사랑', 'KPOP', [
+    ['Lowkey In Love', "Girls' Generation-HRS"]
+  ]);
+
 })();
