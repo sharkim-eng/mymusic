@@ -142,6 +142,22 @@
     "titleScore": 1.0,
     "videoId": "r7-A9NqUjRI"
   },
+  "3 nights|||dominic fike": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Dominic Fike",
+    "matchedTitle": "3 Nights",
+    "query": "3 Nights Dominic Fike",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "U488iz5q8KA"
+  },
+  "365&7|||ph-1 feat. jamie": {
+    "kind": "unresolved",
+    "query": "365&7 pH-1 feat. JAMIE",
+    "resolverVersion": 2
+  },
   "4ever|||clairo": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -163,6 +179,28 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "KfEEm4Zx-EU"
+  },
+  "_world|||seventeen": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "SEVENTEEN",
+    "matchedTitle": "_WORLD",
+    "query": "_WORLD SEVENTEEN",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "waSxahLWSAM"
+  },
+  "a dream with a baseball player|||faye webster": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Faye Webster",
+    "matchedTitle": "A Dream With a Baseball Player",
+    "query": "A Dream with a Baseball Player Faye Webster",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "ProTc68FfFg"
   },
   "a drop in the ocean|||ron pope": {
     "artistScore": 1.0,
@@ -218,6 +256,39 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "BBpzg38GIXU"
+  },
+  "abcdefu|||gayle": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "GAYLE",
+    "matchedTitle": "abcdefu",
+    "query": "abcdefu GAYLE",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "xn0-IZZ6YO4"
+  },
+  "about damn time|||lizzo": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Lizzo",
+    "matchedTitle": "About Damn Time",
+    "query": "About Damn Time Lizzo",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "wnWxeBfV2ZQ"
+  },
+  "about today|||the national": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The National",
+    "matchedTitle": "About Today",
+    "query": "About Today The National",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "IvkzQzlECFQ"
   },
   "about you|||the 1975": {
     "artistScore": 1.0,
@@ -278,6 +349,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "vum2bUJwfkI"
+  },
+  "adorn|||miguel": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Miguel",
+    "matchedTitle": "Adorn",
+    "query": "Adorn Miguel",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Gnat3vk9lLM"
   },
   "adult diversion|||alvvays": {
     "artistScore": 1.0,
@@ -367,6 +449,17 @@
     "titleScore": 1.0,
     "videoId": "s3_5FKpAxAQ"
   },
+  "all i ask|||adele": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Adele",
+    "matchedTitle": "All I Ask",
+    "query": "All I Ask Adele",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "sonzlE32YVg"
+  },
   "all i did was dream of you|||beabadoobee feat. the marías": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -444,6 +537,17 @@
     "titleScore": 1.0,
     "videoId": "6e3qnMmeApE"
   },
+  "ambivalence avenue|||bibio": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Bibio",
+    "matchedTitle": "ambivalence avenue",
+    "query": "Ambivalence Avenue Bibio",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "rBWvjD3o034"
+  },
   "amoeba|||clairo": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -466,6 +570,17 @@
     "titleScore": 1.0,
     "videoId": "kr4DNZz_8zI"
   },
+  "amusement park|||baekhyun": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "BAEKHYUN",
+    "matchedTitle": "놀이공원 Amusement Park",
+    "query": "Amusement Park BAEKHYUN",
+    "resolverVersion": 2,
+    "score": 0.8758,
+    "titleScore": 0.8485,
+    "videoId": "HODFXuctyNY"
+  },
   "anchor|||novo amor": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -487,6 +602,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "GiNR187EMd4"
+  },
+  "animal farm|||bibi": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "BIBI",
+    "matchedTitle": "Animal Farm",
+    "query": "Animal Farm BIBI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "0psbaVuZv0o"
   },
   "animal i have become|||three days grace": {
     "artistScore": 1.0,
@@ -674,6 +800,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "oz_YNxaaVsM"
+  },
+  "armageddon|||aespa": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "aespa",
+    "matchedTitle": "Armageddon",
+    "query": "Armageddon aespa",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "4ZHxBEDHTFg"
   },
   "arson|||j-hope": {
     "artistScore": 1.0,
@@ -884,6 +1021,17 @@
     "titleScore": 1.0,
     "videoId": "brxkoLjrsFc"
   },
+  "bambi|||baekhyun": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "BAEKHYUN",
+    "matchedTitle": "Bambi",
+    "query": "Bambi BAEKHYUN",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "MYtpZoJRs5A"
+  },
   "bang bang bang|||bigbang": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -960,6 +1108,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "3PW1UcIKOyM"
+  },
+  "beautiful day|||u2": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "U2",
+    "matchedTitle": "Beautiful Day",
+    "query": "Beautiful Day U2",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "V1j_MA3daLI"
   },
   "beautiful goodbye|||chen": {
     "artistScore": 1.0,
@@ -1060,6 +1219,17 @@
     "titleScore": 1.0,
     "videoId": "Kx7B-XvmFtE"
   },
+  "belong to you|||sabrina claudio": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Sabrina Claudio",
+    "matchedTitle": "Belong to You",
+    "query": "Belong to You Sabrina Claudio",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "xrv5eDMbZNM"
+  },
   "bench|||그리즐리(grizzly)": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -1137,6 +1307,28 @@
     "titleScore": 1.0,
     "videoId": "RSsTx2TBrww"
   },
+  "better|||khalid": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Khalid",
+    "matchedTitle": "Better",
+    "query": "Better Khalid",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "zweuMUhYpX0"
+  },
+  "between the bars|||elliott smith": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Elliott Smith",
+    "matchedTitle": "Between The Bars",
+    "query": "Between the Bars Elliott Smith",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "IqwhTIYfFOQ"
+  },
   "beyond|||leon bridges": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -1147,6 +1339,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "-wTNn4VgMXk"
+  },
+  "big black car|||gregory alan isakov": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Gregory Alan Isakov",
+    "matchedTitle": "Big Black Car",
+    "query": "Big Black Car Gregory Alan Isakov",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "JgumMOMHpns"
   },
   "big jet plane|||angus & julia stone": {
     "artistScore": 1.0,
@@ -1181,6 +1384,17 @@
     "titleScore": 1.0,
     "videoId": "jvwQHyHYhPg"
   },
+  "bittersweet|||wonwoo & mingyu feat. lee hi": {
+    "artistScore": 0.7619,
+    "kind": "audio",
+    "matchedArtist": "WONWOO, MINGYU (SEVENTEEN)",
+    "matchedTitle": "Bittersweet (feat. LeeHi)",
+    "query": "Bittersweet WONWOO & MINGYU feat. LEE HI",
+    "resolverVersion": 2,
+    "score": 0.9571,
+    "titleScore": 1.0,
+    "videoId": "RMjJRDVKI8o"
+  },
   "bittersweet|||wonwoo & mingyu feat. leehi": {
     "artistScore": 0.7619,
     "kind": "audio",
@@ -1213,6 +1427,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "WMbL2K3xVEM"
+  },
+  "black sheep|||metric": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Metric",
+    "matchedTitle": "Black Sheep",
+    "query": "Black Sheep Metric",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "2w608EMt9mU"
   },
   "blinding lights|||the weeknd": {
     "artistScore": 1.0,
@@ -1346,6 +1571,17 @@
     "titleScore": 1.0,
     "videoId": "Yt7ZGcfJIL0"
   },
+  "boca|||dreamcatcher": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Dreamcatcher",
+    "matchedTitle": "BOCA",
+    "query": "BOCA Dreamcatcher",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "jjQnex_9SMQ"
+  },
   "bodies|||drowning pool": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -1356,6 +1592,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "iYcbfc_UB6M"
+  },
+  "bones|||crumb": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Crumb",
+    "matchedTitle": "Bones",
+    "query": "Bones Crumb",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "r7JWHuGFUeI"
   },
   "bonfire|||wave to earth": {
     "artistScore": 1.0,
@@ -1412,6 +1659,17 @@
     "titleScore": 1.0,
     "videoId": "Q-erYa8cwnc"
   },
+  "boyish|||japanese breakfast": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Japanese Breakfast",
+    "matchedTitle": "Boyish",
+    "query": "Boyish Japanese Breakfast",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "aXTyZovrPuA"
+  },
   "boyz with fun|||bts": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -1455,6 +1713,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "NaaiI1y9QIo"
+  },
+  "break my soul|||beyoncé": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Beyoncé",
+    "matchedTitle": "BREAK MY SOUL",
+    "query": "Break My Soul Beyoncé",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "y6dw-v4BH-Y"
   },
   "break stuff|||limp bizkit": {
     "artistScore": 1.0,
@@ -1676,6 +1945,17 @@
     "titleScore": 1.0,
     "videoId": "A6h-Xrx7H4U"
   },
+  "can i|||alina baraz & galimatias": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Alina Baraz Galimatias",
+    "matchedTitle": "Can I",
+    "query": "Can I Alina Baraz & Galimatias",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "00xa7AF7r8M"
+  },
   "can't help falling in love|||elvis presley": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -1708,6 +1988,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "KxKV_E-wB10"
+  },
+  "can't take my eyes off you|||frankie valli": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Frankie Valli",
+    "matchedTitle": "Can't Take My Eyes off You",
+    "query": "Can't Take My Eyes Off You Frankie Valli",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "DYwQy_9JPtQ"
   },
   "candlelight|||sunset rollercoaster": {
     "artistScore": 1.0,
@@ -1774,6 +2065,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "wqlTrBCNRiY"
+  },
+  "ceilings|||lizzy mcalpine": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Lizzy McAlpine",
+    "matchedTitle": "ceilings",
+    "query": "ceilings Lizzy McAlpine",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "HCwUQRECknw"
   },
   "celebrity|||iu": {
     "artistScore": 1.0,
@@ -1874,6 +2176,28 @@
     "titleScore": 1.0,
     "videoId": "w59ghjATu20"
   },
+  "cherry-coloured funk|||cocteau twins": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Cocteau Twins",
+    "matchedTitle": "Cherry-coloured Funk",
+    "query": "Cherry-coloured Funk Cocteau Twins",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "PbbUeLkZt74"
+  },
+  "cherry|||chromatics": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Chromatics",
+    "matchedTitle": "Cherry",
+    "query": "Cherry Chromatics",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "uqsWzeKZ08w"
+  },
   "chihiro|||billie eilish": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -1884,6 +2208,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "zYEKeEOKNi0"
+  },
+  "child|||mark": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "MARK",
+    "matchedTitle": "Child",
+    "query": "Child MARK",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "xzG53u1Z3Z8"
   },
   "chk chk boom|||stray kids": {
     "artistScore": 1.0,
@@ -2022,6 +2357,17 @@
     "titleScore": 1.0,
     "videoId": "8woM5lOy4Ow"
   },
+  "clouded|||brent faiyaz": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Brent Faiyaz",
+    "matchedTitle": "CLOUDED",
+    "query": "Clouded Brent Faiyaz",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "3k7mtICT3To"
+  },
   "coffee|||beabadoobee": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -2043,6 +2389,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "FJuOEuvMAnE"
+  },
+  "coffee|||miguel": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Miguel",
+    "matchedTitle": "coffee",
+    "query": "Coffee Miguel",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "t-009D5ElRg"
   },
   "cologne|||beabadoobee": {
     "artistScore": 1.0,
@@ -2070,6 +2427,17 @@
     "kind": "unresolved",
     "query": "Come Over DEAN feat. Yerin Baek",
     "resolverVersion": 2
+  },
+  "come through and chill|||miguel feat. j. cole": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Miguel",
+    "matchedTitle": "Come Through and Chill (feat. J. Cole & Salaam Remi)",
+    "query": "Come Through and Chill Miguel feat. J. Cole",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Kxq0oI6GINY"
   },
   "comes and goes|||hyukoh": {
     "artistScore": 1.0,
@@ -2114,6 +2482,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "S5FWGYJIX6w"
+  },
+  "cool blue|||the japanese house": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The Japanese House",
+    "matchedTitle": "Cool Blue",
+    "query": "Cool Blue The Japanese House",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "EFkeAnDkAO0"
   },
   "cool waters|||sorn": {
     "artistScore": 1.0,
@@ -2191,6 +2570,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "aC9HkZW2hZk"
+  },
+  "cry for love|||baekhyun": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "BAEKHYUN",
+    "matchedTitle": "Cry For Love",
+    "query": "Cry For Love BAEKHYUN",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Ol9OH_0dlWM"
   },
   "crystalised|||the xx": {
     "artistScore": 1.0,
@@ -2280,6 +2670,17 @@
     "titleScore": 1.0,
     "videoId": "VJhN9D4SM_c"
   },
+  "damage|||h.e.r.": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "H.E.R.",
+    "matchedTitle": "Damage",
+    "query": "Damage H.E.R.",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "2gulBa5__pU"
+  },
   "dance monkey|||tones and i": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -2312,6 +2713,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "Z1yDjhXIDSc"
+  },
+  "dance, baby!|||boy pablo": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "boy pablo",
+    "matchedTitle": "Dance, Baby!",
+    "query": "Dance, Baby! boy pablo",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "6KJtcZ803W4"
   },
   "dancing in the rain|||lacuna": {
     "artistScore": 1.0,
@@ -2449,6 +2861,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "0l3YHc-Fc0c"
+  },
+  "dear dream|||nct dream": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "NCT DREAM",
+    "matchedTitle": "Dear DREAM",
+    "query": "Dear DREAM NCT DREAM",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "4j_HQoJOeTg"
   },
   "dear me|||taeyeon": {
     "artistScore": 1.0,
@@ -2659,6 +3082,17 @@
     "titleScore": 1.0,
     "videoId": "IfemyZEhfpY"
   },
+  "do 4 love|||snoh aalegra": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Snoh Aalegra",
+    "matchedTitle": "DO 4 LOVE",
+    "query": "DO 4 LOVE Snoh Aalegra",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "ZJk9cIAi-ZY"
+  },
   "do i wanna know?|||arctic monkeys": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -2702,6 +3136,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "Z7SNttUR9n0"
+  },
+  "don't go yet|||camila cabello": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Camila Cabello",
+    "matchedTitle": "Don't Go Yet",
+    "query": "Don't Go Yet Camila Cabello",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "nFcvj3mU6dc"
   },
   "don't start now|||dua lipa": {
     "artistScore": 1.0,
@@ -2784,6 +3229,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "S3Z6N7U7f6I"
+  },
+  "dreaming|||smallpools": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Smallpools",
+    "matchedTitle": "Dreaming",
+    "query": "Dreaming Smallpools",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "kdat8tLaibw"
   },
   "dreams tonite|||alvvays": {
     "artistScore": 1.0,
@@ -2950,6 +3406,17 @@
     "titleScore": 1.0,
     "videoId": "Zj9-RiEf4Og"
   },
+  "easy|||mac ayres": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Mac Ayres",
+    "matchedTitle": "Easy",
+    "query": "Easy Mac Ayres",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "PWK8EuUSMSI"
+  },
   "eight|||iu": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -3060,6 +3527,17 @@
     "titleScore": 1.0,
     "videoId": "ybiINVA_gLc"
   },
+  "ends of the earth|||lord huron": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Lord Huron",
+    "matchedTitle": "Ends of the Earth",
+    "query": "Ends of the Earth Lord Huron",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "N0D8JtOc5u4"
+  },
   "energetic|||wanna one": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -3120,6 +3598,17 @@
     "titleScore": 1.0,
     "videoId": "YifOMt9dlGk"
   },
+  "evergreen (you didn’t deserve me at all)|||omar apollo": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Omar Apollo",
+    "matchedTitle": "Evergreen (You Didn’t Deserve Me At All)",
+    "query": "Evergreen (You Didn’t Deserve Me at All) Omar Apollo",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "m3Gs5e6ux08"
+  },
   "every day, every moment|||paul kim": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -3174,6 +3663,17 @@
     "titleScore": 1.0,
     "videoId": "HXV5aZaBLDo"
   },
+  "everytime|||boy pablo": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "boy pablo",
+    "matchedTitle": "Everytime",
+    "query": "Everytime boy pablo",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "OPUi06yv1jc"
+  },
   "everytime|||chen & punch": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -3217,6 +3717,28 @@
     "score": 0.8553,
     "titleScore": 0.8235,
     "videoId": "QvvfN3ZSh38"
+  },
+  "f song|||strawberry guy": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Strawberry Guy",
+    "matchedTitle": "F Song",
+    "query": "F Song Strawberry Guy",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "0qlvKgm-WXM"
+  },
+  "fade into you|||mazzy star": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Mazzy Star",
+    "matchedTitle": "Fade Into You",
+    "query": "Fade Into You Mazzy Star",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "avv2IIdDnnk"
   },
   "faint|||linkin park": {
     "artistScore": 1.0,
@@ -3575,6 +4097,17 @@
     "titleScore": 1.0,
     "videoId": "xUwMgyUY12Y"
   },
+  "focus|||h.e.r.": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "H.E.R.",
+    "matchedTitle": "Focus",
+    "query": "Focus H.E.R.",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "7YWkZOoAzX4"
+  },
   "for lovers who hesitate|||jannabi": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -3773,6 +4306,17 @@
     "titleScore": 1.0,
     "videoId": "_F2GyzNZdy4"
   },
+  "ghostride|||crumb": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Crumb",
+    "matchedTitle": "Ghostride",
+    "query": "Ghostride Crumb",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "62vYyjnY95k"
+  },
   "gift|||melomance": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -3783,6 +4327,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "vVRg-bsSTIg"
+  },
+  "gimme all your love|||alabama shakes": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Alabama Shakes",
+    "matchedTitle": "Gimme All Your Love",
+    "query": "Gimme All Your Love Alabama Shakes",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "3TotIeYatDE"
   },
   "given up|||linkin park": {
     "artistScore": 1.0,
@@ -3927,6 +4482,17 @@
     "titleScore": 1.0,
     "videoId": "xZdj3LM5X1M"
   },
+  "good days|||sza": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "SZA",
+    "matchedTitle": "Good Days",
+    "query": "Good Days SZA",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "-JIazHCRk9A"
+  },
   "good day|||iu": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4009,6 +4575,11 @@
     "query": "Goodbye! 경제환",
     "resolverVersion": 2
   },
+  "goodbye|||2ne1": {
+    "kind": "unresolved",
+    "query": "Goodbye 2NE1",
+    "resolverVersion": 2
+  },
   "goodbye|||wendy": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4052,6 +4623,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "_iGOWk-r614"
+  },
+  "greek tragedy|||the wombats": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The Wombats",
+    "matchedTitle": "Greek Tragedy",
+    "query": "Greek Tragedy The Wombats",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "51jXW0dFDlw"
   },
   "growl|||exo": {
     "artistScore": 1.0,
@@ -4130,6 +4712,17 @@
     "titleScore": 1.0,
     "videoId": "NSTUVHsb9xw"
   },
+  "happier|||ed sheeran": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Ed Sheeran",
+    "matchedTitle": "Happier",
+    "query": "Happier Ed Sheeran",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "9fMPtkbKVYk"
+  },
   "happy|||pharrell williams": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4140,6 +4733,39 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "dJqxQzxLbHM"
+  },
+  "hard carry|||got7": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "GOT7",
+    "matchedTitle": "하드캐리 Hard Carry",
+    "query": "Hard Carry GOT7",
+    "resolverVersion": 2,
+    "score": 0.836,
+    "titleScore": 0.8,
+    "videoId": "A_Ebw4Ml3kI"
+  },
+  "hard to say|||karencici": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Karencici",
+    "matchedTitle": "Hard to say",
+    "query": "Hard to Say Karencici",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Boq_1knXJc0"
+  },
+  "harvey|||her's": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Her's",
+    "matchedTitle": "Harvey",
+    "query": "Harvey Her's",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "T0Ry1m0Blug"
   },
   "hate you|||yerin baek": {
     "artistScore": 1.0,
@@ -4218,6 +4844,17 @@
     "titleScore": 1.0,
     "videoId": "CJQ8bauY8Tk"
   },
+  "heartbreak anniversary|||giveon": {
+    "artistScore": 0.9091,
+    "kind": "audio",
+    "matchedArtist": "GIVĒON",
+    "matchedTitle": "Heartbreak Anniversary",
+    "query": "Heartbreak Anniversary Giveon",
+    "resolverVersion": 2,
+    "score": 0.9836,
+    "titleScore": 1.0,
+    "videoId": "UC8JSS6O7OU"
+  },
   "heartbreak warfare|||john mayer": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4272,6 +4909,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "vMHpQH7pbjg"
+  },
+  "heaven or las vegas|||cocteau twins": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Cocteau Twins",
+    "matchedTitle": "Heaven or Las Vegas",
+    "query": "Heaven or Las Vegas Cocteau Twins",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "LRFWkkIXBxM"
   },
   "heavenly|||cigarettes after sex": {
     "artistScore": 1.0,
@@ -4427,6 +5075,17 @@
     "titleScore": 1.0,
     "videoId": "jKif0JIC7LE"
   },
+  "homage|||mild high club": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Mild High Club",
+    "matchedTitle": "Homage",
+    "query": "Homage Mild High Club",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "4u7kNELI76A"
+  },
   "homebody|||ph-1": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4493,6 +5152,17 @@
     "titleScore": 1.0,
     "videoId": "04cnPWgMrvM"
   },
+  "honey|||raveena": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Raveena",
+    "matchedTitle": "Honey",
+    "query": "Honey Raveena",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "K9rYo9g6lKQ"
+  },
   "hot rod|||dayglow": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4514,6 +5184,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "jAk2WBAjzlI"
+  },
+  "houdini|||dua lipa": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Dua Lipa",
+    "matchedTitle": "Houdini",
+    "query": "Houdini Dua Lipa",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "cCfPDrRQp9k"
   },
   "houdini|||foster the people": {
     "artistScore": 1.0,
@@ -4636,6 +5317,17 @@
     "titleScore": 1.0,
     "videoId": "ghrlZIMDzbM"
   },
+  "i ain't worried|||onerepublic": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "OneRepublic",
+    "matchedTitle": "I Ain't Worried",
+    "query": "I Ain't Worried OneRepublic",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "-K9VwBEOI-Q"
+  },
   "i ain’t worried|||onerepublic": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4679,6 +5371,28 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "UJ90r6m8mVE"
+  },
+  "i can't stop me|||twice": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "TWICE",
+    "matchedTitle": "I CAN'T STOP ME",
+    "query": "I CAN'T STOP ME TWICE",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "3d-D5bLDZSk"
+  },
+  "i choose you|||sara bareilles": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Sara Bareilles",
+    "matchedTitle": "I Choose You",
+    "query": "I Choose You Sara Bareilles",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "iQz9P6ZNdWg"
   },
   "i don't know you|||the marías": {
     "artistScore": 1.0,
@@ -4746,6 +5460,17 @@
     "titleScore": 1.0,
     "videoId": "ph9KP2_lT5Q"
   },
+  "i hate u|||sza": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "SZA",
+    "matchedTitle": "I Hate U",
+    "query": "I Hate U SZA",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "yPMa4PxuxSU"
+  },
   "i just might|||bruno mars": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4757,6 +5482,17 @@
     "titleScore": 1.0,
     "videoId": "8_C6lXoGB5Y"
   },
+  "i know you|||faye webster": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Faye Webster",
+    "matchedTitle": "I Know You",
+    "query": "I Know You Faye Webster",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "o0tqEQ331go"
+  },
   "i like me better|||lauv": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4767,6 +5503,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "MsSIVZlqC9w"
+  },
+  "i lived|||onerepublic": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "OneRepublic",
+    "matchedTitle": "I Lived",
+    "query": "I Lived OneRepublic",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "R9LJ2sBD0F8"
   },
   "i loved you|||day6": {
     "artistScore": 1.0,
@@ -4790,6 +5537,28 @@
     "titleScore": 1.0,
     "videoId": "hComisqDS1I"
   },
+  "i miss you|||soyou": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "SOYOU",
+    "matchedTitle": "I Miss You",
+    "query": "I Miss You SOYOU",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "XAKL4SR2geQ"
+  },
+  "i need my girl|||the national": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The National",
+    "matchedTitle": "I Need My Girl",
+    "query": "I Need My Girl The National",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "8fzwUtna4eg"
+  },
   "i need somebody|||day6": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -4811,6 +5580,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "nyuo9-OjNNg"
+  },
+  "i want you around|||snoh aalegra": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Snoh Aalegra",
+    "matchedTitle": "I Want You Around",
+    "query": "I Want You Around Snoh Aalegra",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "WdyPcNEA27M"
   },
   "i won't give up|||jason mraz": {
     "artistScore": 1.0,
@@ -4954,6 +5734,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "dd3tlEL9Cmg"
+  },
+  "in a good way|||faye webster": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Faye Webster",
+    "matchedTitle": "In A Good Way",
+    "query": "In a Good Way Faye Webster",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "s7olpccix-w"
   },
   "in my dreams|||red velvet": {
     "artistScore": 1.0,
@@ -5147,6 +5938,17 @@
     "titleScore": 1.0,
     "videoId": "x6QJPJO2w40"
   },
+  "jam & butterfly|||dpr live feat. crush & eaj": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "DPR LIVE",
+    "matchedTitle": "Jam & Butterfly (feat. Crush & Eaj)",
+    "query": "Jam & Butterfly DPR LIVE feat. Crush & eaJ",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Ler_Zl49UjQ"
+  },
   "japanese denim|||daniel caesar": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -5168,6 +5970,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "6d-ygS1tKuU"
+  },
+  "jazz bar|||dreamcatcher": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Dreamcatcher",
+    "matchedTitle": "Jazz Bar",
+    "query": "Jazz Bar Dreamcatcher",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "-lQsrWaNHro"
   },
   "jealous|||labrinth": {
     "artistScore": 1.0,
@@ -5212,6 +6025,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "qqDd9isYwlE"
+  },
+  "jotto|||bibi": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "BIBI",
+    "matchedTitle": "JOTTO",
+    "query": "JOTTO BIBI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "1-kEtQWRbe0"
   },
   "joy, sorrow, a beautiful heart|||akmu": {
     "artistScore": 1.0,
@@ -5350,6 +6174,17 @@
     "query": "Kidult SEVENTEEN",
     "resolverVersion": 2
   },
+  "kilby girl|||the backseat lovers": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The Backseat Lovers",
+    "matchedTitle": "Kilby Girl",
+    "query": "Kilby Girl The Backseat Lovers",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "oTwVce9eWb4"
+  },
   "kill this love|||blackpink": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -5393,6 +6228,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "p9nNUuPei0Y"
+  },
+  "kingston|||faye webster": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Faye Webster",
+    "matchedTitle": "Kingston",
+    "query": "Kingston Faye Webster",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "TTReFZIAnpU"
   },
   "kiss me more|||doja cat feat. sza": {
     "artistScore": 1.0,
@@ -5448,6 +6294,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "NagF9LUiUno"
+  },
+  "kyoto|||phoebe bridgers": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Phoebe Bridgers",
+    "matchedTitle": "Kyoto",
+    "query": "Kyoto Phoebe Bridgers",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Ubt_qaac_wM"
   },
   "l-o-v-e|||nat king cole": {
     "artistScore": 1.0,
@@ -5713,6 +6570,17 @@
     "titleScore": 1.0,
     "videoId": "xt_IlpwNAFo"
   },
+  "like i want you|||giveon": {
+    "artistScore": 0.9091,
+    "kind": "audio",
+    "matchedArtist": "GIVĒON",
+    "matchedTitle": "Like I Want You",
+    "query": "Like I Want You Giveon",
+    "resolverVersion": 2,
+    "score": 0.9836,
+    "titleScore": 1.0,
+    "videoId": "IHp5Y4S3IJQ"
+  },
   "like i'm gonna lose you|||meghan trainor feat. john legend": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -5856,6 +6724,17 @@
     "titleScore": 1.0,
     "videoId": "GKsR3A1zyjo"
   },
+  "locket|||crumb": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Crumb",
+    "matchedTitle": "Locket",
+    "query": "Locket Crumb",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "xKmqwrQFlpA"
+  },
   "lonely|||2ne1": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -5900,6 +6779,17 @@
     "titleScore": 1.0,
     "videoId": "117xdufmtMY"
   },
+  "lose you to love me|||selena gomez": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Selena Gomez",
+    "matchedTitle": "Lose You To Love Me",
+    "query": "Lose You to Love Me Selena Gomez",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "WlA99PPNTik"
+  },
   "lose yourself to dance|||daft punk": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -5943,6 +6833,11 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "oDmtHxw4MOY"
+  },
+  "losing you|||puma blue": {
+    "kind": "unresolved",
+    "query": "Losing You Puma Blue",
+    "resolverVersion": 2
   },
   "lost|||frank ocean": {
     "artistScore": 1.0,
@@ -6252,6 +7147,17 @@
     "titleScore": 1.0,
     "videoId": "j_sG_Juncn8"
   },
+  "lovers' carvings|||bibio": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Bibio",
+    "matchedTitle": "lovers’ carvings",
+    "query": "Lovers' Carvings Bibio",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "XgGAeeKXGXY"
+  },
   "lover|||taylor swift": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -6263,6 +7169,17 @@
     "titleScore": 1.0,
     "videoId": "uLL2xTK35Qc"
   },
+  "lovin' you|||minnie riperton": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Minnie Riperton",
+    "matchedTitle": "Lovin' You",
+    "query": "Lovin' You Minnie Riperton",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "HpJ89eaALCg"
+  },
   "loving is easy|||rex orange county": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -6273,6 +7190,28 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "YE09kUi2q34"
+  },
+  "loving is easy|||rex orange county feat. benny sings": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Rex Orange County",
+    "matchedTitle": "Loving Is Easy (feat. Benny Sings)",
+    "query": "Loving Is Easy Rex Orange County feat. Benny Sings",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "YE09kUi2q34"
+  },
+  "lowkey in love|||girls' generation-hrs": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Girls' Generation-HRS",
+    "matchedTitle": "Lowkey In Love",
+    "query": "Lowkey In Love Girls' Generation-HRS",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "QhGLKkgDJKQ"
   },
   "lowkey|||niki": {
     "artistScore": 1.0,
@@ -6395,6 +7334,17 @@
     "titleScore": 1.0,
     "videoId": "HBqH4uJS0PU"
   },
+  "mago|||gfriend": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "GFRIEND",
+    "matchedTitle": "MAGO",
+    "query": "MAGO GFRIEND",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "sinPks6z2ng"
+  },
   "make up|||sam kim feat. crush": {
     "artistScore": 0.5217,
     "kind": "audio",
@@ -6516,6 +7466,17 @@
     "titleScore": 1.0,
     "videoId": "kTDiUMMoNQs"
   },
+  "matilda|||harry styles": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Harry Styles",
+    "matchedTitle": "Matilda",
+    "query": "Matilda Harry Styles",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "IRfQI9Y6EK0"
+  },
   "maybe it's not our fault|||yerin baek": {
     "kind": "unresolved",
     "query": "Maybe It's Not Our Fault Yerin Baek",
@@ -6525,6 +7486,17 @@
     "kind": "unresolved",
     "query": "Maybe It’s Not Our Fault Yerin Baek",
     "resolverVersion": 2
+  },
+  "maybe you're the reason|||the japanese house": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The Japanese House",
+    "matchedTitle": "Maybe You're the Reason",
+    "query": "Maybe You're the Reason The Japanese House",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "F1tLdhxtXW4"
   },
   "mayday|||crush feat. joy": {
     "artistScore": 0.4762,
@@ -6613,6 +7585,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "qCwGQFSM0-Y"
+  },
+  "metamodernity|||vansire": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Vansire",
+    "matchedTitle": "Metamodernity",
+    "query": "Metamodernity Vansire",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "PiLc3m59qIw"
   },
   "mic drop|||bts": {
     "artistScore": 1.0,
@@ -6735,6 +7718,17 @@
     "titleScore": 1.0,
     "videoId": "4YSHPGn9-LM"
   },
+  "monster|||exo": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "EXO",
+    "matchedTitle": "Monster",
+    "query": "Monster EXO",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "KJevaDSz7Nc"
+  },
   "monster|||paramore": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -6789,6 +7783,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "DXqZ66XK3z8"
+  },
+  "moon undah water|||puma blue": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Puma Blue",
+    "matchedTitle": "Moon Undah Water",
+    "query": "Moon Undah Water Puma Blue",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "h0FWWHFslLA"
   },
   "moonlight on the river|||mac demarco": {
     "artistScore": 1.0,
@@ -6855,6 +7860,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "G-WiVddfKuU"
+  },
+  "mrs magic|||strawberry guy": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Strawberry Guy",
+    "matchedTitle": "Mrs Magic",
+    "query": "Mrs Magic Strawberry Guy",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "zf2k9_Nnm7w"
   },
   "my house is not a home|||d4vd": {
     "artistScore": 1.0,
@@ -7031,6 +8047,28 @@
     "titleScore": 1.0,
     "videoId": "tkzYyEp4zB4"
   },
+  "nice to see you|||vansire": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Vansire",
+    "matchedTitle": "Nice to See You (feat. FLOOR CRY)",
+    "query": "Nice to See You Vansire",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "AiXjhj3-j9s"
+  },
+  "night drive|||chromatics": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Chromatics",
+    "matchedTitle": "Night Drive",
+    "query": "Night Drive Chromatics",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "MZauPDAqfX8"
+  },
   "night drive|||red velvet": {
     "artistScore": 1.0,
     "kind": "video",
@@ -7129,6 +8167,17 @@
     "score": 0.9743,
     "titleScore": 1.0,
     "videoId": "Jzjl_dJog1k"
+  },
+  "nobody knows|||kiss of life": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "KISS OF LIFE",
+    "matchedTitle": "Nobody Knows",
+    "query": "Nobody Knows KISS OF LIFE",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "9BivV8qFP_Y"
   },
   "nobody new|||the marías": {
     "artistScore": 1.0,
@@ -7240,6 +8289,17 @@
     "titleScore": 1.0,
     "videoId": "Nv3bQao8l3I"
   },
+  "nothing|||kiss of life": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "KISS OF LIFE",
+    "matchedTitle": "Nothing",
+    "query": "Nothing KISS OF LIFE",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "gBR9SoPtOu8"
+  },
   "nothing’s gonna hurt you baby|||cigarettes after sex": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -7316,6 +8376,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "P8W4p5UIfqA"
+  },
+  "obsession|||exo": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "EXO",
+    "matchedTitle": "Obsession",
+    "query": "Obsession EXO",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "TadhhUt9BPc"
   },
   "obstacle 1|||interpol": {
     "artistScore": 1.0,
@@ -7607,6 +8678,17 @@
     "score": 0.874,
     "titleScore": 1.0,
     "videoId": "3bEAQmFy5Xw"
+  },
+  "open|||rhye": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Rhye",
+    "matchedTitle": "Open",
+    "query": "Open Rhye",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "CZBjAplQWQE"
   },
   "opera house|||cigarettes after sex": {
     "artistScore": 1.0,
@@ -7965,6 +9047,17 @@
     "titleScore": 1.0,
     "videoId": "rN9Mn6oEFmI"
   },
+  "phone numbers|||dominic fike": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Dominic Fike Kenny Beats",
+    "matchedTitle": "Phone Numbers",
+    "query": "Phone Numbers Dominic Fike",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "gWqPEvLQNMA"
+  },
   "phonecert|||10cm": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -8140,6 +9233,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "tQMCJuDAJw4"
+  },
+  "pop!|||nayeon": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "NAYEON",
+    "matchedTitle": "POP!",
+    "query": "POP! NAYEON",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "R9TPed_ohKM"
   },
   "popo (how deep is our love?)|||yerin baek": {
     "artistScore": 1.0,
@@ -8442,6 +9546,17 @@
     "titleScore": 1.0,
     "videoId": "nhys3nF4ZDU"
   },
+  "remember me|||umi": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "UMI",
+    "matchedTitle": "Remember Me",
+    "query": "Remember Me UMI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "LFWPotfn9Qo"
+  },
   "remember when|||wallows": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -8590,6 +9705,28 @@
     "titleScore": 1.0,
     "videoId": "ZMpXtI6Nhsk"
   },
+  "rivers and roads|||the head and the heart": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The Head And The Heart",
+    "matchedTitle": "Rivers and Roads",
+    "query": "Rivers and Roads The Head and the Heart",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "I8a3yGcdc3E"
+  },
+  "road head|||japanese breakfast": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Japanese Breakfast",
+    "matchedTitle": "Road Head",
+    "query": "Road Head Japanese Breakfast",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "h9Ua8MC5W2Y"
+  },
   "roar|||katy perry": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -8721,6 +9858,17 @@
     "score": 0.9345,
     "titleScore": 1.0,
     "videoId": "aRvJ-zt11nM"
+  },
+  "rush|||troye sivan": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Troye Sivan",
+    "matchedTitle": "Rush",
+    "query": "Rush Troye Sivan",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "pYNg4wJd0Vg"
   },
   "russian roulette|||red velvet": {
     "artistScore": 1.0,
@@ -8865,6 +10013,17 @@
     "titleScore": 1.0,
     "videoId": "REmUidcJt5I"
   },
+  "saw you in a dream|||the japanese house": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The Japanese House",
+    "matchedTitle": "Saw You In A Dream",
+    "query": "Saw You in a Dream The Japanese House",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "5L3I_U-3ZaU"
+  },
   "say can you hear|||men i trust": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -8952,6 +10111,28 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "EM1t8H_PE78"
+  },
+  "scream|||dreamcatcher": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Dreamcatcher",
+    "matchedTitle": "Scream",
+    "query": "Scream Dreamcatcher",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "y2foaFagp_M"
+  },
+  "sea of love|||cat power": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Cat Power",
+    "matchedTitle": "Sea of Love",
+    "query": "Sea of Love Cat Power",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "KEfNo-rHjyQ"
   },
   "seasons|||wave to earth": {
     "artistScore": 1.0,
@@ -9046,6 +10227,17 @@
     "titleScore": 1.0,
     "videoId": "GJ7m7xRHr-I"
   },
+  "shadow|||chromatics": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Chromatics",
+    "matchedTitle": "Shadow",
+    "query": "Shadow Chromatics",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "2Hwp0tA7IAM"
+  },
   "shake it off|||taylor swift": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -9078,6 +10270,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "1e65rEVbZe4"
+  },
+  "shoot me|||day6": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "DAY6",
+    "matchedTitle": "Shoot Me",
+    "query": "Shoot Me DAY6",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "pjl369FQht8"
   },
   "shotgun|||george ezra": {
     "artistScore": 1.0,
@@ -9123,6 +10326,17 @@
     "titleScore": 1.0,
     "videoId": "GGsuLVlLObc"
   },
+  "shut up my moms calling|||hotel ugly": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Hotel Ugly",
+    "matchedTitle": "Shut up My Moms Calling",
+    "query": "Shut up My Moms Calling Hotel Ugly",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "a24EUd0zeqI"
+  },
   "sienna|||the marías": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -9156,6 +10370,17 @@
     "titleScore": 1.0,
     "videoId": "g8levlGEciw"
   },
+  "since u been gone|||kelly clarkson": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Kelly Clarkson",
+    "matchedTitle": "Since U Been Gone",
+    "query": "Since U Been Gone Kelly Clarkson",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "p0BiGek2bKA"
+  },
   "sing it all again|||wave to earth": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -9177,6 +10402,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "8tMKanAqkbc"
+  },
+  "skibidi|||girls' generation-hrs": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Girls' Generation-HRS",
+    "matchedTitle": "Skibidi",
+    "query": "Skibidi Girls' Generation-HRS",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "qxxOgqxosds"
   },
   "skinny love|||birdy": {
     "artistScore": 1.0,
@@ -9244,6 +10480,17 @@
     "titleScore": 1.0,
     "videoId": "4De_ERjvuUI"
   },
+  "slow down|||mac ayres": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Mac Ayres",
+    "matchedTitle": "Slow Down",
+    "query": "Slow Down Mac Ayres",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "9jAjHucs8Q8"
+  },
   "slow motion|||karina": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -9266,6 +10513,17 @@
     "titleScore": 1.0,
     "videoId": "7TDeBi34OtE"
   },
+  "smiley|||yena feat. bibi": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "YENA",
+    "matchedTitle": "SMILEY (feat. BIBI)",
+    "query": "SMILEY YENA feat. BIBI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "2KSWVz2tDEI"
+  },
   "smother|||daughter": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -9276,6 +10534,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "r3MmaN4exms"
+  },
+  "snooze|||sza": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "SZA",
+    "matchedTitle": "Snooze",
+    "query": "Snooze SZA",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "ZqSlV5LmrTg"
   },
   "snow|||surl": {
     "artistScore": 1.0,
@@ -9298,6 +10567,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "EoYs-QEhgkc"
+  },
+  "so what|||p!nk": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "P!NK",
+    "matchedTitle": "So What",
+    "query": "So What P!nk",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "BQ2P1K7Yl00"
   },
   "sofia|||clairo": {
     "artistScore": 1.0,
@@ -9442,6 +10722,17 @@
     "titleScore": 1.0,
     "videoId": "SQrKCytWbj8"
   },
+  "song for you|||rhye": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Rhye",
+    "matchedTitle": "Song For You",
+    "query": "Song for You Rhye",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "FujpFWeLjzc"
+  },
   "sour grapes|||le sserafim": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -9541,6 +10832,17 @@
     "titleScore": 1.0,
     "videoId": "v0kjCEZ0-3g"
   },
+  "state lines|||novo amor": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Novo Amor",
+    "matchedTitle": "State Lines",
+    "query": "State Lines Novo Amor",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "yzmCY0mYPtg"
+  },
   "stay|||nell": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -9573,6 +10875,17 @@
     "score": 0.8829,
     "titleScore": 0.8571,
     "videoId": "HY8G_hsuhDs"
+  },
+  "still love you|||lee hong gi & yoo hwe seung": {
+    "artistScore": 0.4,
+    "kind": "audio",
+    "matchedArtist": "Lee MinHyuk",
+    "matchedTitle": "Still Love You (사랑한 적 없어)",
+    "query": "Still Love You LEE HONG GI & Yoo Hwe Seung",
+    "resolverVersion": 2,
+    "score": 0.892,
+    "titleScore": 1.0,
+    "videoId": "FB2ukQN882k"
   },
   "still with you|||jung kook": {
     "artistScore": 1.0,
@@ -9628,6 +10941,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "hYt5NSjWKds"
+  },
+  "sugarcoat (natty solo)|||kiss of life": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "KISS OF LIFE",
+    "matchedTitle": "Sugarcoat (NATTY Solo)",
+    "query": "Sugarcoat (NATTY Solo) KISS OF LIFE",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Tc0cvOLYsus"
   },
   "sugar|||maroon 5": {
     "artistScore": 1.0,
@@ -9870,6 +11194,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "Fy13nEjZoO0"
+  },
+  "sure thing|||miguel": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Miguel",
+    "matchedTitle": "Sure Thing",
+    "query": "Sure Thing Miguel",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "esKJ8BbauGk"
   },
   "surf.|||wave to earth": {
     "artistScore": 1.0,
@@ -10129,6 +11464,17 @@
     "titleScore": 1.0,
     "videoId": "QyN7J1eB1fU"
   },
+  "talk|||khalid": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Khalid",
+    "matchedTitle": "Talk (feat. Disclosure)",
+    "query": "Talk Khalid",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "tEpuiZm94OQ"
+  },
   "tears|||sabrina carpenter": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10206,6 +11552,17 @@
     "titleScore": 1.0,
     "videoId": "vdB3E5cRdTk"
   },
+  "text me|||dpr live": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "DPR LIVE",
+    "matchedTitle": "Text Me",
+    "query": "Text Me DPR LIVE",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "Geo6V5h6bvY"
+  },
   "that's okay|||d.o.": {
     "artistScore": 1.0,
     "kind": "video",
@@ -10217,6 +11574,28 @@
     "titleScore": 1.0,
     "videoId": "j2aQ_NqeTNw"
   },
+  "the 1|||taylor swift": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Taylor Swift",
+    "matchedTitle": "the 1",
+    "query": "the 1 Taylor Swift",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "_yHn-954iVQ"
+  },
+  "the bug collector|||haley heynderickx": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Haley Heynderickx",
+    "matchedTitle": "The Bug Collector",
+    "query": "The Bug Collector Haley Heynderickx",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "26SdRPawtC0"
+  },
   "the climb|||miley cyrus": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10227,6 +11606,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "W-1cW0s_sTE"
+  },
+  "the fall|||rhye": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Rhye",
+    "matchedTitle": "The Fall",
+    "query": "The Fall Rhye",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "K4TbO2UQxdQ"
   },
   "the fate of ophelia|||taylor swift": {
     "artistScore": 1.0,
@@ -10393,6 +11783,17 @@
     "titleScore": 1.0,
     "videoId": "Q7VNqAV9Rps"
   },
+  "the weekend|||bibi": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "88rising BIBI",
+    "matchedTitle": "The Weekend",
+    "query": "The Weekend BIBI",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "tN0RAIHbHok"
+  },
   "therefore i am|||billie eilish": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10503,6 +11904,17 @@
     "titleScore": 1.0,
     "videoId": "9ssQKlLxBdQ"
   },
+  "tick tick boom|||the hives": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "The Hives",
+    "matchedTitle": "Tick Tick Boom",
+    "query": "Tick Tick Boom The Hives",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "NwVwsW0XZvY"
+  },
   "till i collapse|||eminem": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10596,6 +12008,17 @@
     "query": "To My Youth BOL4",
     "resolverVersion": 2
   },
+  "to you|||seventeen": {
+    "artistScore": 1.0,
+    "kind": "video",
+    "matchedArtist": "SEVENTEEN",
+    "matchedTitle": "To you",
+    "query": "To You SEVENTEEN",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "n9ta1Pgeu80"
+  },
   "tokyo drifting|||glass animals feat. denzel curry": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10673,6 +12096,17 @@
     "titleScore": 1.0,
     "videoId": "mUEsqQpact0"
   },
+  "training season|||dua lipa": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Dua Lipa",
+    "matchedTitle": "Training Season",
+    "query": "Training Season Dua Lipa",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "n0GXk_T2zs8"
+  },
   "traitor|||olivia rodrigo": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10728,6 +12162,17 @@
     "titleScore": 1.0,
     "videoId": "oSBSpSOh6lQ"
   },
+  "trust|||brent faiyaz": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Brent Faiyaz",
+    "matchedTitle": "Trust",
+    "query": "Trust Brent Faiyaz",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "vu1vQyjE1aA"
+  },
   "try again|||d.ear & jaehyun": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10772,6 +12217,17 @@
     "titleScore": 1.0,
     "videoId": "___h2czNhe0"
   },
+  "turbulence|||ateez": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "ATEEZ",
+    "matchedTitle": "Turbulence",
+    "query": "Turbulence ATEEZ",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "2DPIsnB4RM0"
+  },
   "turning page|||sleeping at last": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10805,6 +12261,17 @@
     "titleScore": 1.0,
     "videoId": "1yxEmmYQdl8"
   },
+  "ugotme|||omar apollo": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Omar Apollo",
+    "matchedTitle": "Ugotme",
+    "query": "Ugotme Omar Apollo",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "ZxJD0JNVfwk"
+  },
   "umpah umpah|||red velvet": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -10826,6 +12293,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "Nwk3Wm4IiEs"
+  },
+  "under your spell|||desire": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Desire",
+    "matchedTitle": "Under Your Spell",
+    "query": "Under Your Spell Desire",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "SoH0BWBmVZY"
   },
   "undercover martyn|||two door cinema club": {
     "artistScore": 1.0,
@@ -10870,6 +12348,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "WdiSosDz4ss"
+  },
+  "unravel me|||sabrina claudio": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Sabrina Claudio",
+    "matchedTitle": "Unravel Me",
+    "query": "Unravel Me Sabrina Claudio",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "rqZs2O6LnaA"
   },
   "until i found you|||stephen sanchez": {
     "artistScore": 1.0,
@@ -11146,6 +12635,17 @@
     "titleScore": 0.8333,
     "videoId": "v69U0oE9MBU"
   },
+  "want me|||puma blue": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Puma Blue",
+    "matchedTitle": "Want Me",
+    "query": "Want Me Puma Blue",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "eJQeDLihBzA"
+  },
   "warm on a cold night|||honne": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -11222,6 +12722,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "FWReVTxfzF0"
+  },
+  "we fell in love in october|||girl in red": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "girl in red",
+    "matchedTitle": "we fell in love in october",
+    "query": "We Fell in Love in October girl in red",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "FJX0JPXD2nM"
   },
   "we found love|||rihanna feat. calvin harris": {
     "artistScore": 1.0,
@@ -11311,6 +12822,17 @@
     "titleScore": 1.0,
     "videoId": "20-upBrpdrg"
   },
+  "what 2 do|||dean feat. crush & jeff bernat": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "DEAN",
+    "matchedTitle": "What 2 Do (feat. Crush & Jeff Bernat)",
+    "query": "What 2 Do DEAN feat. Crush & Jeff Bernat",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "20-upBrpdrg"
+  },
   "what a wonderful world|||louis armstrong": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -11354,6 +12876,28 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "d57qSDCxVA4"
+  },
+  "what once was|||her's": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Her's",
+    "matchedTitle": "What Once Was",
+    "query": "What Once Was Her's",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "l-rjYVI3OMo"
+  },
+  "what was i made for?|||billie eilish": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Billie Eilish",
+    "matchedTitle": "What Was I Made For? [From The Motion Picture \"Barbie\"]",
+    "query": "What Was I Made For? Billie Eilish",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "FcXRwUsA6xs"
   },
   "what you know|||two door cinema club": {
     "artistScore": 1.0,
@@ -11509,6 +13053,17 @@
     "titleScore": 1.0,
     "videoId": "bVrW1eDMtL8"
   },
+  "wild flower|||park hyo shin": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Park Hyo Shin",
+    "matchedTitle": "Wild Flower (야생화)",
+    "query": "Wild Flower Park Hyo Shin",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "ZtcM3KhgF-s"
+  },
   "wild flower|||rm feat. youjeen": {
     "kind": "unresolved",
     "query": "Wild Flower RM feat. youjeen",
@@ -11535,6 +13090,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "CO0-a3O0G7g"
+  },
+  "windowpane|||mild high club": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Mild High Club",
+    "matchedTitle": "Windowpane",
+    "query": "Windowpane Mild High Club",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "mdJaJsD0Nrk"
   },
   "wolf like me|||tv on the radio": {
     "artistScore": 1.0,
@@ -11583,6 +13149,11 @@
   "y si fuera ella|||jonghyun": {
     "kind": "unresolved",
     "query": "Y Si Fuera Ella JONGHYUN",
+    "resolverVersion": 2
+  },
+  "yawn|||seventeen": {
+    "kind": "unresolved",
+    "query": "Yawn SEVENTEEN",
     "resolverVersion": 2
   },
   "yeah right|||joji": {
@@ -11651,6 +13222,17 @@
     "titleScore": 1.0,
     "videoId": "E4CZuj7solw"
   },
+  "you oughta know|||alanis morissette": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Alanis Morissette",
+    "matchedTitle": "You Oughta Know",
+    "query": "You Oughta Know Alanis Morissette",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "iWFE1pekWyI"
+  },
   "you raise me up|||josh groban": {
     "artistScore": 1.0,
     "kind": "audio",
@@ -11683,6 +13265,17 @@
     "score": 1.0,
     "titleScore": 1.0,
     "videoId": "0iNx70rhLks"
+  },
+  "you will be found|||ben platt": {
+    "artistScore": 1.0,
+    "kind": "audio",
+    "matchedArtist": "Ben Platt Kristolyn Lloyd Will Roland Laura Dreyfuss",
+    "matchedTitle": "You Will Be Found",
+    "query": "You Will Be Found Ben Platt",
+    "resolverVersion": 2,
+    "score": 1.0,
+    "titleScore": 1.0,
+    "videoId": "4LZsBeJiHUM"
   },
   "young folks|||peter bjorn and john": {
     "artistScore": 1.0,
