@@ -1,4 +1,4 @@
-const CACHE_NAME = 'shark-pwa-v9';
+const CACHE_NAME = 'shark-pwa-v10';
 const APP_SHELL = [
   './',
   './index.html',
@@ -6,6 +6,7 @@ const APP_SHELL = [
   './result.html',
   './playlist.html',
   './shark.css',
+  './shark-bg-hq.webp',
   './enhancements.css',
   './shark-core.js',
   './public/music-data.js',
